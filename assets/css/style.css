@@ -1,0 +1,89 @@
+:root {
+  --primary-color: #f0f0f0;
+
+  --primary-bg-color: #111217;
+  --secondary-bg-color: #28292e;
+
+  --title-color: #9a9a9c;
+  --link-color: #9a9a9c;
+  --icon-color: #9a9a9c;
+  --text-color: #9a9a9c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: var(--primary-bg-color);
+}
+i {
+  color: var(--icon-color);
+}
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+.header__brand .header__logo {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+#toglleTheme {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  background: var(--primary-bg-color);
+}
+.menu__item {
+  width: 100%;
+}
+.menu--mobile {
+  justify-content: space-between;
+  border-top: 1px solid var(--secondary-bg-color);
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+}
+.menu--mobile .menu__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+ .active .menu__text, .active .menu__icon {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.menu__icon,
+.menu__text {
+  color: var(--text-color);
+}
+
+.menu__icon {
+  font-size: 1.5rem;
+  
+}
+.menu__text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .menu--mobile {
+    display: none;
+  }
+  
+}
