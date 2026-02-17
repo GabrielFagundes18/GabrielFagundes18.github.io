@@ -484,6 +484,14 @@ main {
   transform: rotate(180deg);
 }
 
+.certificate {
+  display: flex;
+  width: 50%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  object-position: center;
+}
+
 .contact {
   display: flex;
   flex-direction: column;
