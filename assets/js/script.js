@@ -1,32 +1,52 @@
-
 const toggleTheme = document.getElementById("toggleTheme");
-const rootHtml = document.documentElement
+const rootHtml = document.documentElement;
 const accordionHeaders = document.querySelectorAll(".accordion__header");
 const menuLinks = document.querySelectorAll(".menu__link");
+const sections = document.querySelectorAll("main, section");
 
-function changeTheme(){
-  const currentTheme = rootHtml.getAttribute("data-theme");
+// Inicialização de tema
+const savedTheme = localStorage.getItem("theme") || "dark";
+rootHtml.setAttribute("data-theme", savedTheme);
+if (savedTheme === "light")
+  toggleTheme.classList.replace("bi-sun", "bi-moon-stars");
 
-  currentTheme === "dark" ? rootHtml.setAttribute("data-theme", "light") : rootHtml.setAttribute("data-theme", "dark")
+// Troca de tema otimizada
+toggleTheme.addEventListener("click", () => {
+  const isDark = rootHtml.getAttribute("data-theme") === "dark";
+  const newTheme = isDark ? "light" : "dark";
 
-  toggleTheme.classList.toggle("bi-sun")
-  toggleTheme.classList.toggle("bi-moon-stars")
-}
+  rootHtml.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
 
-toggleTheme.addEventListener("click", changeTheme);
+  toggleTheme.classList.toggle("bi-sun");
+  toggleTheme.classList.toggle("bi-moon-stars");
+});
 
-accordionHeaders.forEach(header => {
+// Accordion
+accordionHeaders.forEach((header) => {
   header.addEventListener("click", () => {
-    const accordionItem = header.parentElement;
-    const accordionActive = accordionItem.classList.contains("active");
+    header.parentElement.classList.toggle("active");
+  });
+});
 
-    accordionActive ? accordionItem.classList.remove("active") : accordionItem.classList.add("active");
-  })
-})
+// Intersection Observer (Menu Ativo)
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        menuLinks.forEach((link) => {
+          link.classList.toggle(
+            "active",
+            link.getAttribute("href") === `#${id}`,
+          );
+        });
+      }
+    });
+  },
+  { threshold: 0.6 },
+);
 
-menuLinks.forEach(item => {
-  item.addEventListener("click", () => {
-    menuLinks.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
-  })
-})
+sections.forEach((section) => {
+  if (section.id) observer.observe(section);
+});

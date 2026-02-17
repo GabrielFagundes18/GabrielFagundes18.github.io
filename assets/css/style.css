@@ -1,40 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400&display=swap');
+:root {
+  /* Dark Mode - Graphite & Royal Blue */
+  --primary-color: #3b82f6; /* Azul Real elegante */
+  --primary-bg-color: #121212; /* Preto grafite (não puro) */
+  --secondary-bg-color: #1e1e1e; /* Cinza para cards */
+  --primary-border-color: #2e2e2e;
+  --secondary-border-color: #3b82f6;
 
-:root, :root[data-theme='dark'] {
-  --primary-color: #F0F0F0;
-
-  --primary-bg-color: #111217;
-  --secondary-bg-color: #28292E;
-  --primary-border-color: #28292E;
-	--secondary-border-color: #56575A;
-
-  --title-color: #F0F0F0;
-  --text-color: #9A9A9C;
-  --link-color: #9A9A9C;
-  --icon-color: #C7C8C9;
+  --title-color: #ffffff;
+  --text-color: #a0a0a0;
+  --link-color: #3b82f6;
+  --icon-color: #3b82f6;
 }
 
 :root[data-theme='light'] {
-  --primary-color: #0B0B0F;
-
-	--primary-bg-color: #E9E9E9;
-	--secondary-bg-color: #C7C8C9;
-	--primary-border-color: #C7C8C9;
-	--secondary-border-color: #9A9A9C;
-
-	--title-color: #0B0B0F;
-	--text-color: #28292E;
-	--link-color: #28292E;
-	--icon-color: #56575A;
+  /* Light Mode - Pure White & Slate */
+  --primary-color: #2563eb;
+  --primary-bg-color: #ffffff;
+  --secondary-bg-color: #f8fafc; /* Azulado bem clarinho */
+  --primary-border-color: #e2e8f0;
+  --secondary-border-color: #2563eb;
+  --title-color: #0f172a; /* Azul quase preto para títulos */
+  --text-color: #475569; /* Cinza ardósia para leitura */
+  --link-color: #2563eb;
+  --icon-color: #2563eb;
 }
 
-html[data-theme='light'] .brand__logo {
-  filter: invert(1);
-}
 
-html[data-theme='light'] .technologies__logo {
-  filter: invert(80%);
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -51,6 +47,15 @@ body {
   background: var(--primary-bg-color);
   font-family:'Inter', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-color);
+}
+/* Isso evita que o header fixo cubra o título da seção ao navegar */
+section[id], main[id] {
+    scroll-margin-top: 5rem; 
+}
+
+/* Melhora a transição de cores ao mudar o tema */
+body, section, main, .projects__card, .accordion__header, .accordion__body {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 ::-webkit-scrollbar {
@@ -242,6 +247,7 @@ p {
 .btn--primary {
   border: 1px solid var(--primary-color);
 }
+
 
 main, .projects, .about, .contact {
   padding: 2.5rem 1rem;

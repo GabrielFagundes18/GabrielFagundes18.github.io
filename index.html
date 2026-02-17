@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
@@ -86,9 +86,11 @@
 
     <main id="home">
       <div class="main__content1">
-        <h1><b>Bem Vindo ao meu Portfolio </b> Desenvolvimento Front-end</h1>
-        
-        <p>Gabriel Fagundes De Oliveira, Guarulhos - SP /  JavaScript ,  React.</p>
+        <h1>Gabriel Fagundes<br /><b>Desenvolvedor Front-end</b></h1>
+        <p>
+          Guarulhos - SP | Especialista em interfaces modernas com JavaScript e
+          React.
+        </p>
         <ul class="menu menu--social">
           <li>
             <a
@@ -133,14 +135,14 @@
         <li class="technologies__item">
           <img
             class="technologies__logo"
-            src="assets/images/HtmlCss.png"
+            src="assets/images/tecnologias/HtmlCss.png"
             alt="Html/Css"
           />
         </li>
         <li class="technologies__item">
           <img
             class="technologies__logo"
-            src="assets/images/js.webp"
+            src="assets/images/tecnologias/js.webp"
             alt="
         JavaScript"
           />
@@ -148,14 +150,14 @@
         <li class="technologies__item">
           <img
             class="technologies__logo"
-            src="assets/images/bootstrap.png"
+            src="assets/images/tecnologias/Bootstrap.png"
             alt="Bootstrap"
           />
         </li>
         <li class="technologies__item">
           <img
             class="technologies__logo"
-            src="assets/images/React.png"
+            src="assets/images/tecnologias/React.png"
             alt="React"
           />
         </li>
@@ -168,16 +170,16 @@
         <div class="projects__card">
           <img
             class="card__cover"
-            src="assets/images/projects/josisbox.jpg"
-            alt="Capa Josi's Box"
+            src="assets/images/img_projeto/login.png"
+            alt="Pojeto login"
           />
           <div class="card__body">
-            <h3 class="card__title">Josi’s Box Ecommerce</h3>
-            <p class="card__description">Ecommerce de Livros</p>
+            <h3 class="card__title">Login</h3>
+            <p class="card__description">Login/Cadastro</p>
             <ul class="card__list">
-              <li class="card__item">Listagem de favoritos;</li>
-              <li class="card__item">Carrinho de compras;</li>
-              <li class="card__item">Filtragem por preço e categoria.</li>
+              <li class="card__item">Fazer login;</li>
+              <li class="card__item">Cadastrar usuário;</li>
+              <li class="card__item">Recuperar senha;</li>
             </ul>
             <ul class="technologies__list">
               <li class="technologies__item">
@@ -190,23 +192,23 @@
               <li class="technologies__item">
                 <img
                   class="technologies__logo"
-                  src="assets/images/js.webp"
+                  src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png"
                   alt="
-        JavaScript"
+        Bootstrap"
                 />
               </li>
               <li class="technologies__item">
                 <img
                   class="technologies__logo"
-                  src="assets/images/bootstrap.png"
-                  alt="Bootstrap"
+                  src="https://nodejs.org/static/logos/jsIconGreen.svg"
+                  alt="Node.js"
                 />
               </li>
               <li class="technologies__item">
                 <img
                   class="technologies__logo"
-                  src="assets/images/React.png"
-                  alt="React"
+                  src="https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-LightSymbol.png"
+                  alt="Prisma"
                 />
               </li>
             </ul>
@@ -215,126 +217,21 @@
                 <span>Prévia</span>
                 <i class="bi bi-arrow-up-right"></i>
               </button>
-              <button class="btn">
+              <button
+                class="btn"
+                onclick="
+                  window.open(
+                    'https://github.com/GabrielFagundes18/Login-e-Recupera-o-de-senha-',
+                    '_blank',
+                  )
+                "
+              >
                 <span>Repositório</span>
               </button>
             </div>
           </div>
         </div>
-        <div class="projects__card card--reverse">
-          <img
-            class="card__cover"
-            src="assets/images/projects/archstil.jpg"
-            alt="Capa Archstil"
-          />
-          <div class="card__body">
-            <h3 class="card__title">Archstil Blog</h3>
-            <p class="card__description">
-              A história por trás dos Estilos Arquitetônicos.
-            </p>
-            <ul class="card__list">
-              <li class="card__item">Postagens relacionadas e em destaque;</li>
-              <li class="card__item">Filtragem por tags e categorias;</li>
-              <li class="card__item">Biografia do autor.</li>
-            </ul>
-            <ul class="technologies__list">
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/HtmlCss.png"
-                  alt="Html/Css"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/js.webp"
-                  alt="
-        JavaScript"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/bootstrap.png"
-                  alt="Bootstrap"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/React.png"
-                  alt="React"
-                />
-              </li>
-            </ul>
-            <div class="card__buttons">
-              <button class="btn btn--primary">
-                <span>Prévia</span>
-                <i class="bi bi-arrow-up-right"></i>
-              </button>
-              <button class="btn">
-                <span>Repositório</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="projects__card">
-          <img
-            class="card__cover"
-            src="assets/images/projects/games-store.jpg"
-            alt="Capa Games Store"
-          />
-          <div class="card__body">
-            <h3 class="card__title">Games Store</h3>
-            <p class="card__description">Loja online de Games.</p>
-            <ul class="card__list">
-              <li class="card__item">Listagem de favoritos;</li>
-              <li class="card__item">Carrinho de compras;</li>
-              <li class="card__item">Filtragem por preço e categoria.</li>
-            </ul>
-            <ul class="technologies__list">
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/HtmlCss.png"
-                  alt="Html/Css"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/js.webp"
-                  alt="
-        JavaScript"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/bootstrap.png"
-                  alt="Bootstrap"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/React.png"
-                  alt="React"
-                />
-              </li>
-            </ul>
-            <div class="card__buttons">
-              <button class="btn btn--primary">
-                <span>Prévia</span>
-                <i class="bi bi-arrow-up-right"></i>
-              </button>
-              <button class="btn">
-                <span>Repositório</span>
-              </button>
-            </div>
-          </div>
-        </div>
+
         <a href="https://github.com/GabrielFagundes18">
           <button class="btn btn--primary">
             <span>Ver Todos os Projetos</span>
@@ -373,7 +270,7 @@
                 <i class="bi bi-arrow-up-right"></i>
               </button>
             </a>
-            <a href="DevCurriculo.pdf" download>
+            <a href="dev.pdf" download>
               <button class="btn">
                 <span>Currículo</span>
               </button>
@@ -398,23 +295,22 @@
           <div id="accordion">
             <div class="accordion__item active">
               <button class="accordion__header start">
-                <span>Versionamento de Código com Git e GitHub</span>
+                <span>Formação JavaScript Developer</span>
                 <i class="bi bi-caret-down-fill"></i>
               </button>
               <div class="accordion__body">
                 <img
                   class="certificate"
-                  src=""
-                  alt=" "
+                  src="assets/images/certificados/JavaScriptDeveloper.jpg"
+                  alt="Formação JavaScript Developer"
                 />
-                <p>Digital Innovation One. Ago 2025. 2h.</p>
+                <p>Digital Innovation One. Fev 2026. 39h.</p>
                 <p>
-                  O que é versionamento de código, Git e GitHub. Como instalar e
-                  configurar o Git em diferentes sistemas operacionais e como
-                  autenticar via Token e SSH. Como manusear repositórios, indo
-                  desde a criação e clonagem até o gerenciamento de branches,
-                  passando por todas as etapas de salvar, desfazer e sincronizar
-                  alterações com o repositório remoto.
+                  Fundamentos do JavaScript, incluindo variáveis, tipos de
+                  dados, operadores, estruturas de controle, funções e
+                  manipulação do DOM. Introdução a conceitos avançados como
+                  programação assíncrona, Promises e Fetch API. Desenvolvimento
+                  de projetos práticos para aplicar os conhecimentos adquiridos.
                 </p>
               </div>
             </div>
@@ -440,25 +336,10 @@
                 </p>
               </div>
             </div>
+
             <div class="accordion__item">
               <button class="accordion__header end">
-                <span>Formação JavaScript Developer</span>
-                <i class="bi bi-caret-down-fill"></i>
-              </button>
-              <div class="accordion__body end">
-                <p>Digital Innovation One. Fev 2025. 39h.</p>
-                <p>
-                  Fundamentos do JavaScript, incluindo variáveis, tipos de
-                  dados, operadores, estruturas de controle, funções e
-                  manipulação do DOM. Introdução a conceitos avançados como
-                  programação assíncrona, Promises e Fetch API. Desenvolvimento
-                  de projetos práticos para aplicar os conhecimentos adquiridos.
-                </p>
-              </div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__header end">
-                <span>Formação React Developer</span>
+                <span>Formação React Developer (Cursando)</span>
                 <i class="bi bi-caret-down-fill"></i>
               </button>
               <div class="accordion__body end">
@@ -469,6 +350,21 @@
                   Router e consumo de APIs. Desenvolvimento de aplicações web
                   interativas e responsivas utilizando boas práticas e padrões
                   de projeto.
+                </p>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__header end">
+                <span>Formação Node.js Developer (Cursando)</span>
+                <i class="bi bi-caret-down-fill"></i>
+              </button>
+              <div class="accordion__body end">
+                <p>Digital Innovation One. Ago 2025. 34h. Cursando</p>
+                <p>
+                  Desenvolvimento de ecossistemas back-end utilizando Node.js e
+                  o framework Express. A formação abrange desde a manipulação de
+                  sistemas de arquivos e streams até a criação de APIs RESTful
+                  robustas...
                 </p>
               </div>
             </div>
@@ -515,9 +411,10 @@
           </a>
         </li>
       </ul>
-      <a href="#">
+      <a href="mailto:gabrielfagundesvv@gmail.com">
         <button class="btn btn--primary">
-          <span class="email">gabrielfagundvv@gamil.com</span>
+          <i class="bi bi-send"></i>
+          <span>Enviar E-mail</span>
         </button>
       </a>
     </section>
