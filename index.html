@@ -191,8 +191,27 @@
             <p class="card__description">Login/Cadastro</p>
             <ul class="card__list">
               <li class="card__item">Fazer login;</li>
-              <li class="card__item">Cadastrar usuário;</li>
-              <li class="card__item">Recuperar senha;</li>
+              <li class="card__item">Cadastrar novo usuário;</li>
+              <li class="card__item">
+                Recuperação de senha (Fluxo OTP em 3 etapas);
+              </li>
+              <li class="card__item">Alternância de tema (Dark/Light Mode);</li>
+
+              <li class="card__item">Criptografia de senhas com Bcrypt;</li>
+              <li class="card__item">
+                Validação de senha forte (Símbolos e Números);
+              </li>
+              <li class="card__item">Verificação de e-mails duplicados;</li>
+
+              <li class="card__item">
+                Integração com Banco de Dados PostgreSQL;
+              </li>
+              <li class="card__item">
+                API REST robusta com Node.js e Express;
+              </li>
+              <li class="card__item">
+                Interface 100% responsiva (Mobile First).
+              </li>
             </ul>
             <ul class="technologies__list">
               <li class="technologies__item">
@@ -234,13 +253,12 @@
           </div>
         </div>
         <div class="card__buttons">
-          <button class="btn btn--primary"
-          onclick="
-              window.open(
-                'https://login-chi-sepia.vercel.app',
-                '_blank',
-              )
-            ">
+          <button
+            class="btn btn--primary"
+            onclick="
+              window.open('https://login-chi-sepia.vercel.app', '_blank')
+            "
+          >
             <span>Prévia</span>
             <i class="bi bi-arrow-up-right"></i>
           </button>
