@@ -52,36 +52,6 @@ sections.forEach((section) => {
 });
 
 
-
-
-
-window.addEventListener("load", function() {
-  const logo = document.getElementById("main-logo");
-  const text = document.getElementById("welcome-text");
-  const preloader = document.getElementById("preloader");
-
-  // 1. Tempo total que a logo fica pulsando (ex: 2.5 segundos)
-  setTimeout(() => {
-    // Esconde a logo suavemente
-    logo.style.display = "none";
-    
-    // 2. Mostra o texto de boas-vindas
-    text.style.display = "block";
-    setTimeout(() => {
-      text.style.opacity = "1";
-    }, 50); // Pequeno atraso para o efeito de fade funcionar
-
-    // 3. Tempo que o texto fica na tela antes de sumir (ex: 2 segundos)
-    setTimeout(() => {
-      preloader.classList.add("hidden");
-    }, 3000); 
-
-  }, 2500); 
-});
-
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
         threshold: 0.2 // Começa quando 20% da seção aparecer

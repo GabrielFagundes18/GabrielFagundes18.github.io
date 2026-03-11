@@ -17,16 +17,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-
-
-<div id="preloader">
-  <div id="loader-content">
-    <img src="assets/images/Logo (1).png" alt="Logo" class="loader-logo" id="main-logo">
-    <h1 id="welcome-text" style="display: none; opacity: 0;">Bem-vindo ao meu portfólio</h1>
-  </div>
-</div>
-
-
+ 
     <header class="header">
       <nav class="header__nav">
         <ul class="menu menu--principal">
@@ -190,101 +181,71 @@
     <section id="projetos" class="projects">
       <h2>Projetos</h2>
       <div class="projects__container">
-    <!--  <div class="projects__card">
-          <img
-            class="card__cover"
-            src="assets/images/img_projeto/login.png"
-            alt="Pojeto login"
-          />
-          <div class="card__body">
-            <h3 class="card__title">Login</h3>
-            <p class="card__description">Login/Cadastro</p>
-            <ul class="card__list">
-              <li class="card__item">Fazer login;</li>
-              <li class="card__item">Cadastrar novo usuário;</li>
-              <li class="card__item">
-                Recuperação de senha (Fluxo OTP em 3 etapas);
-              </li>
-              <li class="card__item">Alternância de tema (Dark/Light Mode);</li>
+    
+        <div class="projects__card">
+  <iframe
+    class="card__iframe "
+    src="https://hamburgueria-gamma-five.vercel.app/"
+    title="Projeto Calculadora React"
+    style="border: none; min-height: 300px;" 
+    loading="lazy"
+  ></iframe>
 
-              <li class="card__item">Criptografia de senhas com Bcrypt;</li>
-              <li class="card__item">
-                Validação de senha forte (Símbolos e Números);
-              </li>
-              <li class="card__item">Verificação de e-mails duplicados;</li>
+  <div class="card__body">
+    <h3 class="card__title">Site Hamburgueria</h3>
+    <p class="card__description">
+      Em Desenvolvimento (Ver previa)
+    </p>
 
-              <li class="card__item">
-                Integração com Banco de Dados PostgreSQL;
-              </li>
-              <li class="card__item">
-                API REST robusta com Node.js e Express;
-              </li>
-              <li class="card__item">
-                Interface 100% responsiva (Mobile First).
-              </li>
-            </ul>
-            <ul class="technologies__list">
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/tecnologias/HTML5.png"
-                  alt="Html"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/tecnologias/CSS.png"
-                  alt="CSS"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/tecnologias/bootstrap.png"
-                  alt="Bootstrap"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="https://nodejs.org/static/logos/jsIconGreen.svg"
-                  alt="Node.js"
-                />
-              </li>
-              <li class="technologies__item">
-                <img
-                  class="technologies__logo"
-                  src="assets/images/tecnologias/postgreSQL.png"
-                  alt="Prisma"
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="card__buttons">
-          <button
-            class="btn btn--primary"
-            onclick="
-              window.open('https://login-chi-sepia.vercel.app', '_blank')
-            "
-          >
-            <span>Prévia</span>
-            <i class="bi bi-arrow-up-right"></i>
-          </button>
-          <button
-            class="btn"
-            onclick="
-              window.open(
-                'https://github.com/GabrielFagundes18/Login',
-                '_blank',
-              )
-            "
-          >
-            <span>Repositório</span>
-          </button>
-        </div>-->
+    <ul class="card__list">
+      <li class="card__item">
+        Desenvolvida com a versão mais recente do
+        <strong>React (v19)</strong>;
+      </li>
+      <li class="card__item">
+        Lógica de operações matemáticas tratada via JavaScript moderno;
+      </li>
+      <li class="card__item">
+        Layout totalmente responsivo para uso em dispositivos móveis;
+      </li>
+    </ul>
 
+    <ul class="technologies__list">
+      <li class="technologies__item">
+        <img
+          class="technologies__logo"
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+          alt="React 19"
+        />
+      </li>
+     
+      <li class="technologies__item">
+        <img
+          class="technologies__logo"
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+          alt="JavaScript"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="card__buttons">
+  <button
+    class="btn btn--primary"
+    onclick="window.open('https://hamburgueria-gamma-five.vercel.app/', '_blank')"
+  >
+    <span>Prévia</span>
+    <i class="bi bi-arrow-up-right"></i>
+  </button>
+  <button
+    class="btn"
+    onclick="window.open('https://github.com/GabrielFagundes18/Hamburgueria', '_blank')"
+  >
+    <span>Repositório</span>
+  </button>
+</div>
+      
         <div class="projects__card card--reverse">
           <img
             class="card__cover"
@@ -384,15 +345,15 @@
         <div class="about__description">
           <h2>Sobre mim</h2>
           <p>
-            Gabriel Fagundes De Oliveira. Desenvolvedor Front-End apaixonado
-            por criar lage Pages. Com habilidades em HTML, CSS, JavaScript,
-            React, Node.js, estou sempre em busca de aprimorar meus
-            conhecimentos e contribuir para projetos inovadores.Tive meus
-            primeiros contatos com programação em 2025, desde então venho me
-            dedicando ao estudo e prática constante para me tornar um
-            profissional cada vez mais completo na área de desenvolvimento web.
-            Sempre busco aprender novas tecnologias e tendências do mercado para
-            oferecer soluções modernas e eficientes.
+            Gabriel Fagundes De Oliveira. Desenvolvedor Front-End apaixonado por
+            criar lage Pages. Com habilidades em HTML, CSS, JavaScript, React,
+            Node.js, estou sempre em busca de aprimorar meus conhecimentos e
+            contribuir para projetos inovadores.Tive meus primeiros contatos com
+            programação em 2025, desde então venho me dedicando ao estudo e
+            prática constante para me tornar um profissional cada vez mais
+            completo na área de desenvolvimento web. Sempre busco aprender novas
+            tecnologias e tendências do mercado para oferecer soluções modernas
+            e eficientes.
           </p>
           <div class="about__icons">
             <i class="bi bi-translate"></i>

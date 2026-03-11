@@ -328,7 +328,15 @@ main {
 
 }
 
-
+.card__iframe {
+  width: 90%;
+  height: 550px; /* Escolha uma altura que fique boa no seu card */
+  border-radius: 0.5rem;
+  border: none; /* Remove a borda padrão do iframe */
+  
+  /* Mantendo suas propriedades anteriores */
+  object-fit: cover; 
+}
 .card__cover {
   width: 100%;
   border-radius: 0.5rem;
