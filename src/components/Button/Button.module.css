@@ -1,0 +1,59 @@
+/* Botão Base - Limpo e com transição suave */
+.btn {
+  padding: 12px 28px;
+  border-radius: 12px; /* Arredondado moderno, não circular */
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all var(--transition); /* Usa a variável que criamos no globals */
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primário: Com efeito de profundidade e brilho sutil */
+.primary {
+  background: var(--accent);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+}
+
+.primary:active {
+  transform: translateY(0);
+}
+
+/* Outline: Elegante e minimalista */
+.outline {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+  backdrop-filter: blur(4px);
+}
+
+.outline:hover {
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.08);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Ajuste para ícones dentro do botão */
+.btn svg {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover svg {
+  transform: translateX(3px); /* Pequena animação no ícone ao passar o mouse */
+}

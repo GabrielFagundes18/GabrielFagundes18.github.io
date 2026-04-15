@@ -1,0 +1,176 @@
+.section {
+z-index: 1;
+  padding: 100px 5%;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.label {
+  font-family: "JetBrains Mono", monospace;
+  color: #3b82f6;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+}
+
+.header h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.header h2 span {
+  color: #3b82f6;
+}
+
+/* GRID COMPACTO: 2 por linha em telas médias/grandes */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projectWrapper {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 12px;
+  height: 420px; /* Altura ideal: nem muito grande, nem muito pequena */
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.projectWrapper:hover {
+  border-color: #3b82f6;
+}
+
+.browserHeader {
+  background: #111;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+}
+.dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #222;
+}
+
+.addressBar {
+  background: #000;
+  flex: 1;
+  border-radius: 4px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  color: #444;
+  border: 1px solid #161616;
+}
+
+.viewContainer {
+  position: relative;
+  height: calc(100% - 44px);
+}
+
+.bgPlaceholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.iframeView {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 2;
+}
+
+.infoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  z-index: 5;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.infoOverlay h3 {
+  font-size: 1.6rem;
+  margin-top: 8px;
+    margin-bottom: 3rem;
+
+}
+
+.tag {
+  font-family: "JetBrains Mono", monospace;
+  color: #3b82f6;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+/* BOTÕES */
+.persistentActions {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.btnMain {
+  background: #fff;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnGit {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #222;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Responsividade */
+@media (max-width: 550px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .projectWrapper {
+    height: 380px;
+  }
+}
