@@ -118,13 +118,13 @@ z-index: 1;
 .infoOverlay h3 {
   font-size: 1.6rem;
   margin-top: 8px;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 
 }
 
 .tag {
   font-family: "JetBrains Mono", monospace;
-  color: #3b82f6;
+  color: #ffffff;
   font-size: 0.7rem;
   text-transform: uppercase;
 }
