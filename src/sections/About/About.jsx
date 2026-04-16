@@ -12,6 +12,7 @@ import {
 
 import styles from "./About.module.css";
 import { Button } from "../../components/Button/Button";
+import minhaImagem from '../../assets/Gabriel.jpg';
 
 export function About() {
   const [repoCount, setRepoCount] = useState(0);
@@ -47,7 +48,7 @@ export function About() {
               <div className={styles.photoWrapper}>
                 <div className={styles.imageOverlay} />
                 <img
-                  src="/gabriel.jpg"
+                  src={minhaImagem}
                   alt="Gabriel Fagundes"
                   className={styles.profileImg}
                 />

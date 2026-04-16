@@ -3,8 +3,9 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { motion } from "framer-motion";
 import { Button } from "../../components/Button/Button";
+import minhaImagem from '../../assets/Gabriel.jpg';
 
-/* Importando ícones */
+
 import {
   FaReact,
   FaNodeJs,
@@ -228,7 +229,7 @@ export function Hero() {
 
             <motion.div className={styles.hexFrame}>
               <img
-                src="/gabriel.jpg"
+                src={minhaImagem}
                 alt="Gabriel Oliveira"
                 className={styles.photo}
               />
