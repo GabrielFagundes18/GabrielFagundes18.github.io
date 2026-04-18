@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa";
 import { 
   SiTypescript, SiJavascript, SiPostgresql, SiStyledcomponents, 
-  SiExpress, SiVercel, SiGithub, SiHtml5, SiLucide, SiBootstrap,SiFramer
+  SiExpress, SiVercel, SiGithub, SiHtml5, SiLucide, SiBootstrap,SiFramer,SiPostman
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { DiNetbeans } from "react-icons/di";
@@ -33,7 +33,7 @@ const skillCategories = [
       { icon: <FaDatabase />, name: "Database", color: "#4169E1" },
       { icon: <FaJava />, name: "Java", color: "#ED8B00" },
       { icon: <FaPython />, name: "Python", color: "#3776AB" },
-     
+      {icon: <SiPostman />, name: "Postman", color: "#FF6C37" },
 
     ]
   },
@@ -47,6 +47,7 @@ const skillCategories = [
       { icon: <DiNetbeans />, name: "NetBeans", color: "#0078D4" },
       { icon: <SiLucide />, name: "Lucide Icons", color: "#22C55E" },
       { icon: <SiFramer />, name: "Framer Motion", color: "#0055FF" },
+      
     ]
   }
 ];

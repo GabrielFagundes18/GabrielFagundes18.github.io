@@ -27,6 +27,7 @@ import {
   SiHtml5,
   SiLucide,
   SiBootstrap,
+  SiPostman
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { DiNetbeans } from "react-icons/di";
@@ -74,6 +75,7 @@ export function Hero() {
     { icon: <SiBootstrap />, name: "Bootstrap", color: "#7952B3" },
     { icon: <VscVscode />, name: "Visual Studio Code", color: "#0078D4" },
     { icon: <DiNetbeans />, name: "NetBeans", color: "#0078D4" },
+    { icon: <SiPostman />, name: "Postman", color: "#FF6C37" },
   ];
 
   const orbStack = useMemo(() => {
