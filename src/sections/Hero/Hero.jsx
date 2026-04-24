@@ -187,7 +187,7 @@ export function Hero() {
           </div>
           <h1 className={styles.title}>
             Desenvolvedor <br />
-            <span className={styles.accent}>Full Stack</span>
+            <span className={styles.accent}>Front end</span>
             <span>.</span>
           </h1>
           <p className={styles.description}>
