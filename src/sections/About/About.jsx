@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { FaGithub, FaDownload } from "react-icons/fa";
 import { HiOutlineChip } from "react-icons/hi";
-import curriculo from "../../assets/Gabriel_Fagundes_Frontend.pdf";
+import curriculo from "../../assets/Gabriel_FagundesDeOliveira.pdf";
 import {
   MdOutlineCode,
   MdTranslate,
