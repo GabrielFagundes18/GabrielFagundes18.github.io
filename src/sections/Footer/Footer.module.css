@@ -1,0 +1,70 @@
+.footer {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.socialIcon {
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  transition: color 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialIcon:hover {
+  color: var(--accent);
+  transform: translateY(-5px);
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+.copyright {
+  text-align: center;
+  font-family: var(--font-mono);
+}
+
+.copyright p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.terminalPrompt {
+  color: var(--accent);
+}
+
+.name {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.stack {
+  margin-top: 8px !important;
+  font-size: 0.72rem !important;
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+.cursor {
+  color: var(--accent);
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
