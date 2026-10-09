@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { navLinks } from "../../data/profile";
-import { useActiveSection } from "../../lib/useActiveSection";
+import { sections } from "../../data/navigation";
+import { useActiveSection } from "../../lib/ActiveSection";
 import styles from "./StatusHUD.module.css";
 
 function formatUptime(ms) {
@@ -13,12 +12,11 @@ function formatUptime(ms) {
 
 // Elemento de assinatura do design: trata o portfólio como um sistema
 // rodando ao vivo. Mostra a seção atual como "processo" ativo e um
-// contador de tempo de sessão — reforça a identidade de dev full stack
-// sem depender de decoração solta.
+// contador de tempo de sessão. É decorativo, por isso fica oculto para
+// leitores de tela (a navegação já informa a seção atual).
 export function StatusHUD() {
-  const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
-  const activeId = useActiveSection(sectionIds);
-  const activeLink = navLinks.find((l) => l.href === `#${activeId}`);
+  const activeId = useActiveSection();
+  const activeSection = sections.find((section) => section.id === activeId);
 
   const [uptime, setUptime] = useState(0);
 
@@ -31,16 +29,11 @@ export function StatusHUD() {
   }, []);
 
   return (
-    <motion.div
-      className={styles.hud}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.4, duration: 0.6 }}
-    >
+    <div className={styles.hud} aria-hidden="true">
       <span className={styles.dot} />
-      <span className={styles.process}>{activeLink?.path ?? "~/home"}</span>
+      <span className={styles.process}>{activeSection?.path ?? "~/home"}</span>
       <span className={styles.divider} />
       <span className={styles.uptime}>{formatUptime(uptime)}</span>
-    </motion.div>
+    </div>
   );
 }

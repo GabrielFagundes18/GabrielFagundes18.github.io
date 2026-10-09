@@ -10,6 +10,8 @@
 }
 
 .navIsland {
+  position: relative;
+  z-index: 51;
   width: 100%;
   max-width: var(--container-w);
   display: flex;
@@ -22,6 +24,14 @@
   backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   transition: background 0.3s ease, border-color 0.3s ease;
+  animation: navIn 0.6s ease-out both;
+}
+
+@keyframes navIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
 }
 
 .scrolled {
@@ -81,6 +91,7 @@
   display: none;
   padding: 8px;
   color: var(--text);
+  border-radius: var(--radius-sm);
 }
 
 .mobileOverlay {
@@ -92,6 +103,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.mobileOverlay.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
 }
 
 .mobileContent {
@@ -99,16 +119,28 @@
   flex-direction: column;
   gap: 22px;
   text-align: center;
+  transform: translateY(40px) scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.open .mobileContent {
+  transform: none;
 }
 
 .mobileContent a {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
   font-size: 1.5rem;
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--text);
+}
+
+.mobileContent a[aria-current="location"] {
+  color: var(--accent);
 }
 
 .mobilePath {
@@ -129,12 +161,23 @@
   border-radius: var(--radius-sm);
 }
 
-@media (max-width: 860px) {
-  .navLinks,
-  .cta {
+@media (min-width: 861px) {
+  .mobileOverlay {
     display: none;
   }
+}
+
+@media (max-width: 860px) {
+  .navLinks {
+    display: none;
+  }
+  .navIsland {
+    gap: 12px;
+  }
+  .logo {
+    margin-right: auto;
+  }
   .menuToggle {
-    display: block;
+    display: flex;
   }
 }
