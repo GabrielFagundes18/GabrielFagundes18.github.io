@@ -1,6 +1,6 @@
 import { skillGroups } from "../../data/skills";
 import { SkillIcon } from "../../lib/icons";
-import { Reveal } from "../../components/Reveal/Reveal";
+import { Reveal } from "../../components/ui/Reveal/Reveal";
 import styles from "./Tech.module.css";
 
 export function Tech() {

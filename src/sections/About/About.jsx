@@ -2,7 +2,7 @@ import Tilt from "react-parallax-tilt";
 import { HiOutlineChip } from "react-icons/hi";
 import styles from "./About.module.css";
 import { profile } from "../../data/profile";
-import { Reveal } from "../../components/Reveal/Reveal";
+import { Reveal } from "../../components/ui/Reveal/Reveal";
 
 const facts = [
   { label: "Formação", value: "Análise e Desenvolvimento de Sistemas — Universidade Cruzeiro do Sul, 3º semestre" },

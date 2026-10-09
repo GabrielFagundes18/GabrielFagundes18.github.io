@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FiMenu, FiSend, FiX } from "react-icons/fi";
 import styles from "./Navbar.module.css";
-import { Button } from "../Button/Button";
+import { Button } from "../ui/Button/Button";
 import { navLinks } from "../../data/navigation";
 import { useActiveSection } from "../../lib/ActiveSection";
 

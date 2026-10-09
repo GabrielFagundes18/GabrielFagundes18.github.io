@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { FiChevronRight, FiDownload } from "react-icons/fi";
-import { Button } from "../../components/Button/Button";
+import { Button } from "../../components/ui/Button/Button";
 import { SkillIcon, SocialIcon } from "../../lib/icons";
 import { useMediaQuery } from "../../lib/useMediaQuery";
 import { orbitSkills } from "../../data/skills";

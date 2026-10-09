@@ -1,7 +1,7 @@
 import { FiDownload, FiMail, FiMapPin, FiSend } from "react-icons/fi";
 import styles from "./Contact.module.css";
-import { Button } from "../../components/Button/Button";
-import { Reveal } from "../../components/Reveal/Reveal";
+import { Button } from "../../components/ui/Button/Button";
+import { Reveal } from "../../components/ui/Reveal/Reveal";
 import { profile, socials } from "../../data/profile";
 import { links } from "../../data/links";
 import { SocialIcon } from "../../lib/icons";
