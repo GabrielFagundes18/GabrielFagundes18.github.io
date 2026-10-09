@@ -39,7 +39,7 @@ export function Cursor() {
     const handleMove = (e) => {
       target.x = e.clientX;
       target.y = e.clientY;
-      setIsPointer(Boolean(e.target.closest("a, button, [data-cursor-hover]")));
+      setIsPointer(Boolean(e.target.closest("a, button")));
       if (frame === null) frame = requestAnimationFrame(tick);
     };
 
