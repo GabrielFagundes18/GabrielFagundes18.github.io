@@ -1,6 +1,6 @@
 import styles from "./Projects.module.css";
 import { ProjectCard } from "./ProjectCard";
-import { projects } from "../../data/projects";
+import { projects } from "../../../../data/projects";
 
 const featured = projects.find((project) => project.featured);
 const others = projects.filter((project) => !project.featured);

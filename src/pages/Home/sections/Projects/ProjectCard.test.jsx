@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { ProjectCard } from "./ProjectCard";
-import { projects } from "../../data/projects";
+import { projects } from "../../../../data/projects";
 
 const withDeploy = projects.find((project) => project.links.deploy);
 const withoutDeploy = projects.find((project) => !project.links.deploy);

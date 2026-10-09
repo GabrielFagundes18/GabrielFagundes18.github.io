@@ -3,13 +3,9 @@ import "./styles/globals.css";
 import { Cursor } from "./components/Cursor/Cursor";
 import { Navbar } from "./components/Navbar/Navbar";
 import { StatusHUD } from "./components/StatusHUD/StatusHUD";
-
-import { Hero } from "./sections/Hero/Hero";
-import { Tech } from "./sections/Tech/Tech";
-import { Projects } from "./sections/Projects/Projects";
-import { About } from "./sections/About/About";
-import { Contact } from "./sections/Contact/Contact";
 import { Footer } from "./components/Footer/Footer";
+
+import { Home } from "./pages/Home/Home";
 
 import { ActiveSectionProvider } from "./contexts/ActiveSectionContext";
 import { sectionIds } from "./data/navigation";
@@ -23,11 +19,7 @@ function App() {
       <Cursor />
       <Navbar />
       <main id="main" tabIndex={-1}>
-        <Hero />
-        <Tech />
-        <Projects />
-        <About />
-        <Contact />
+        <Home />
       </main>
       <Footer />
       <StatusHUD />

@@ -1,10 +1,10 @@
 import { FiDownload, FiMail, FiMapPin, FiSend } from "react-icons/fi";
 import styles from "./Contact.module.css";
-import { Button } from "../../components/ui/Button/Button";
-import { Reveal } from "../../components/ui/Reveal/Reveal";
-import { profile, socials } from "../../data/profile";
-import { links } from "../../data/links";
-import { SocialIcon } from "../../components/ui/Icons/Icons";
+import { Button } from "../../../../components/ui/Button/Button";
+import { Reveal } from "../../../../components/ui/Reveal/Reveal";
+import { profile, socials } from "../../../../data/profile";
+import { links } from "../../../../data/links";
+import { SocialIcon } from "../../../../components/ui/Icons/Icons";
 
 const [emailUser, emailDomain] = profile.email.split("@");
 

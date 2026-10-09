@@ -1,11 +1,11 @@
 import { lazy, Suspense } from "react";
 import { FiChevronRight, FiDownload } from "react-icons/fi";
-import { Button } from "../../components/ui/Button/Button";
-import { SkillIcon, SocialIcon } from "../../components/ui/Icons/Icons";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { orbitSkills } from "../../data/skills";
-import { profile, socials } from "../../data/profile";
-import { GITHUB_USER, links } from "../../data/links";
+import { Button } from "../../../../components/ui/Button/Button";
+import { SkillIcon, SocialIcon } from "../../../../components/ui/Icons/Icons";
+import { useMediaQuery } from "../../../../hooks/useMediaQuery";
+import { orbitSkills } from "../../../../data/skills";
+import { profile, socials } from "../../../../data/profile";
+import { GITHUB_USER, links } from "../../../../data/links";
 import styles from "./Hero.module.css";
 
 const HeroParticles = lazy(() => import("./HeroParticles"));

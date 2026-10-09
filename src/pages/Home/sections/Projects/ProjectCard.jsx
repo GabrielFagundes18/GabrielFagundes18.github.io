@@ -1,7 +1,7 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
-import { Button } from "../../components/ui/Button/Button";
-import { Reveal } from "../../components/ui/Reveal/Reveal";
+import { Button } from "../../../../components/ui/Button/Button";
+import { Reveal } from "../../../../components/ui/Reveal/Reveal";
 import styles from "./ProjectCard.module.css";
 
 const NEW_TAB = "(abre em nova aba)";
