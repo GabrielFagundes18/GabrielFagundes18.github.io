@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { sections } from "../../data/navigation";
-import { useActiveSection } from "../../lib/ActiveSection";
+import { useActiveSection } from "../../contexts/ActiveSectionContext";
 import styles from "./StatusHUD.module.css";
 
 function formatUptime(ms) {

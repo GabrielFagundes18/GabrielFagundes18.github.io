@@ -11,7 +11,7 @@ import { About } from "./sections/About/About";
 import { Contact } from "./sections/Contact/Contact";
 import { Footer } from "./sections/Footer/Footer";
 
-import { ActiveSectionProvider } from "./lib/ActiveSection";
+import { ActiveSectionProvider } from "./contexts/ActiveSectionContext";
 import { sectionIds } from "./data/navigation";
 
 function App() {

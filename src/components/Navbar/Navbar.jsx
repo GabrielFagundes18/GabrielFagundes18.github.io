@@ -3,7 +3,7 @@ import { FiMenu, FiSend, FiX } from "react-icons/fi";
 import styles from "./Navbar.module.css";
 import { Button } from "../ui/Button/Button";
 import { navLinks } from "../../data/navigation";
-import { useActiveSection } from "../../lib/ActiveSection";
+import { useActiveSection } from "../../contexts/ActiveSectionContext";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
