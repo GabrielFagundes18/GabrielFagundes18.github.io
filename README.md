@@ -2,14 +2,14 @@
 
 Portfólio de desenvolvedor full stack que mostra, em uma página só, os projetos publicados como estudos de caso (problema, stack e desafio técnico) para recrutadores de vagas Júnior e Estágio.
 
-[![Deploy na Vercel](https://img.shields.io/badge/deploy-Vercel-000000?logo=vercel&logoColor=white)](URL_DO_DEPLOY)
+[![Deploy no GitHub Pages](https://github.com/GabrielFagundes18/GabrielFagundes18.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/GabrielFagundes18/GabrielFagundes18.github.io/actions/workflows/deploy.yml)
 ![React 19](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black)
 ![CSS Modules](https://img.shields.io/badge/CSS-Modules-1572B6?logo=cssmodules&logoColor=white)
 ![Testes](https://img.shields.io/badge/testes-Jest%20%2B%20Testing%20Library-C21325?logo=jest&logoColor=white)
 [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-green)](LICENSE)
 
-**[Ver projeto online](URL_DO_DEPLOY)** · [Currículo (PDF)](public/curriculo-gabriel-fagundes.pdf) · [LinkedIn](https://www.linkedin.com/in/gabrielfagundesdeoliveira/)
+**[Ver projeto online](https://gabrielfagundes18.github.io/)** · [Currículo (PDF)](public/curriculo-gabriel-fagundes.pdf) · [LinkedIn](https://www.linkedin.com/in/gabrielfagundesdeoliveira/)
 
 > Este repositório é só front-end: o site é estático, sem API nem banco de dados próprios. Os projetos apresentados nele têm seus próprios repositórios de front e API, linkados em cada card.
 
@@ -38,13 +38,13 @@ Portfólio de desenvolvedor full stack que mostra, em uma página só, os projet
 | Animações          | CSS (keyframes) + `IntersectionObserver`; tsParticles no fundo do hero, carregado sob demanda |
 | Build              | Create React App (`react-scripts` 5)                                                          |
 | Testes e qualidade | Jest, Testing Library, ESLint (`eslint-config-react-app`), Prettier                           |
-| Deploy             | Vercel                                                                                        |
+| Deploy             | GitHub Pages, publicado por GitHub Actions                                                    |
 
 ## Arquitetura
 
 ```mermaid
 flowchart LR
-    U["Navegador"] -->|HTTPS| V["Vercel CDN<br/>HTML, JS, CSS e imagens"]
+    U["Navegador"] -->|HTTPS| V["GitHub Pages<br/>HTML, JS, CSS e imagens"]
     V --> I["index.js"]
     subgraph SPA["SPA React"]
         I --> A["App<br/>providers e layout"]
@@ -114,8 +114,8 @@ src/
 **Pré-requisitos:** Node.js 18 ou superior (testado com o 24) e npm.
 
 ```bash
-git clone https://github.com/GabrielFagundes18/portNovo.git
-cd portNovo
+git clone https://github.com/GabrielFagundes18/GabrielFagundes18.github.io.git
+cd GabrielFagundes18.github.io
 npm ci
 npm run dev        # http://localhost:3000
 ```
@@ -131,7 +131,7 @@ npm run dev        # http://localhost:3000
 | `npm run lint`                    | ESLint em `src/`, falha com qualquer warning                                 |
 | `npm run format` / `format:check` | Formata ou confere a formatação com Prettier                                 |
 
-**Deploy:** a Vercel faz o build a cada push na `main`. As meta tags de Open Graph precisam de URL absoluta. Por isso, `.env.production` usa `VERCEL_PROJECT_PRODUCTION_URL`, que a Vercel preenche com o domínio de produção.
+**Deploy:** cada push na `main` dispara o workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), que roda `npm run build` e publica a pasta `build/` no GitHub Pages, em https://gabrielfagundes18.github.io/. As meta tags de Open Graph precisam de URL absoluta, definida em `REACT_APP_SITE_URL` no `.env.production`.
 
 ## Testes
 
@@ -156,7 +156,7 @@ O menu (seção ativa, teclado, menu mobile) e a responsividade foram verificado
 
 **Gabriel Fagundes**: desenvolvedor full stack, em busca de vaga Júnior ou de Estágio em Guarulhos/SP.
 
-- Portfólio: [URL_DO_DEPLOY](URL_DO_DEPLOY)
+- Portfólio: [gabrielfagundes18.github.io](https://gabrielfagundes18.github.io/)
 - LinkedIn: [linkedin.com/in/gabrielfagundesdeoliveira](https://www.linkedin.com/in/gabrielfagundesdeoliveira/)
 - GitHub: [github.com/GabrielFagundes18](https://github.com/GabrielFagundes18)
 - E-mail: [gabrielfagundesvv@gmail.com](mailto:gabrielfagundesvv@gmail.com)
