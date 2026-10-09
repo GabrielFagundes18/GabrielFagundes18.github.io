@@ -1,29 +1,32 @@
-import { motion } from "framer-motion";
 import styles from "./Button.module.css";
+
+const externalLinkProps = { target: "_blank", rel: "noopener noreferrer" };
 
 export function Button({
   children,
   variant = "primary",
   className = "",
   href,
+  external = false,
   ...props
 }) {
   const combinedClassName = `${styles.btn} ${
     variant === "primary" ? styles.primary : styles.outline
   } ${className}`;
 
-  const Component = href ? motion.a : motion.button;
+  const content = <span className={styles.label}>{children}</span>;
+
+  if (href) {
+    return (
+      <a href={href} className={combinedClassName} {...(external ? externalLinkProps : {})} {...props}>
+        {content}
+      </a>
+    );
+  }
 
   return (
-    <Component
-      href={href}
-      className={combinedClassName}
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      {...props}
-    >
-      <span className={styles.label}>{children}</span>
-    </Component>
+    <button type="button" className={combinedClassName} {...props}>
+      {content}
+    </button>
   );
 }
