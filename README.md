@@ -1,287 +1,164 @@
-# Portfólio de Gabriel Fagundes
+# Portfólio — Gabriel Fagundes
 
-Portfólio pessoal de Gabriel Fagundes Oliveira, construído como uma single-page application (SPA) em React. O site apresenta a atuação como desenvolvedor Full Stack, a stack técnica, projetos publicados, informações profissionais e canais de contato.
+Portfólio de desenvolvedor full stack que mostra, em uma página só, os projetos publicados como estudos de caso (problema, stack e desafio técnico) para recrutadores de vagas Júnior e Estágio.
 
-> **Nota sobre o escopo:** o pedido original mencionava um site de ONG de proteção animal, com vitrine de pets, filtro e doação via PIX. A implementação encontrada neste repositório é um portfólio de desenvolvedor. Não existem os componentes `PetSection` ou `Donation`, nem cadastro/filtro de animais, PIX, QR Code ou rota de “ver todos”. Esses itens estão registrados em [Próximos passos](#7-próximos-passos-e-pendências), em vez de serem descritos como funcionalidades prontas.
+[![Deploy na Vercel](https://img.shields.io/badge/deploy-Vercel-000000?logo=vercel&logoColor=white)](URL_DO_DEPLOY)
+![React 19](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black)
+![CSS Modules](https://img.shields.io/badge/CSS-Modules-1572B6?logo=cssmodules&logoColor=white)
+![Testes](https://img.shields.io/badge/testes-Jest%20%2B%20Testing%20Library-C21325?logo=jest&logoColor=white)
+[![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-green)](LICENSE)
 
-## 1. Visão geral do projeto
+**[Ver projeto online](URL_DO_DEPLOY)** · [Currículo (PDF)](public/curriculo-gabriel-fagundes.pdf) · [LinkedIn](https://www.linkedin.com/in/gabrielfagundesdeoliveira/)
 
-### Objetivo
+> Este repositório é só front-end: o site é estático, sem API nem banco de dados próprios. Os projetos apresentados nele têm seus próprios repositórios de front e API, linkados em cada card.
 
-O objetivo atual é funcionar como uma apresentação profissional compacta e navegável. A experiência combina conteúdo editorial, links para projetos reais e uma identidade visual inspirada em terminal/sistema ativo.
+## Prints
 
-### Funcionalidades implementadas
+| Desktop                                                                       | Celular                                                                |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ![Primeira dobra do portfólio no desktop](docs/images/home-desktop.png)       | ![Primeira dobra do portfólio no celular](docs/images/home-mobile.png) |
+| ![Seção de projetos com o card em destaque](docs/images/projetos-desktop.png) | ![Relatório do Lighthouse no mobile](docs/images/lighthouse.png)       |
 
-- Hero com apresentação, chamada para a seção de projetos, foto local e ícones orbitais das tecnologias.
-- Navegação por âncoras para Home, Stack, Projetos e Sobre, com destaque da seção visível.
-- Menu mobile animado, bloqueio de rolagem enquanto aberto e fechamento com `Escape`.
-- Seção de tecnologias dividida em Frontend, Backend & DB e Ferramentas & Infra.
-- Marquee contínuo em CSS com a lista completa de tecnologias.
-- Cards de projetos com imagem, categoria, links para produção e GitHub.
-- Preview em `iframe` ao passar o mouse sobre projetos que possuem URL publicada.
-- Seção Sobre com biografia, foto, currículo para download e contador de repositórios públicos do GitHub.
-- Seção de contato com `mailto:`, redes sociais, localização e indicador de disponibilidade.
-- HUD fixo com seção ativa e contador de tempo da sessão.
-- Cursor decorativo com mola física em dispositivos com ponteiro preciso.
-- Layout responsivo para desktop, tablet e mobile.
+## Funcionalidades
 
-### Stack e bibliotecas
+- Projetos como estudos de caso, do mais complexo ao mais simples, com um card maior em destaque
+- Botões "Ver projeto" e "Ver código" (e "Código da API" quando existe); o de deploy some se o projeto não tiver um
+- Stack separada entre "Uso no dia a dia" e "Tenho familiaridade"
+- Menu que destaca a seção visível e menu mobile acessível por teclado
+- Currículo em PDF para download no topo e no contato
+- Preview com imagem ao compartilhar o link no LinkedIn e no WhatsApp (Open Graph)
+- Layout responsivo de 360 a 1440 px e respeito a `prefers-reduced-motion`
 
-- **React 19** e **React DOM 19** para composição da interface.
-- **Create React App / `react-scripts` 5.0.1** para desenvolvimento, build e testes.
-- **Framer Motion** para entrada em viewport, hover, tap, menu e HUD.
-- **GSAP** para a sequência de entrada do Hero.
-- **tsParticles** (`@tsparticles/react` e `@tsparticles/slim`) para a rede de partículas interativa.
-- **React Parallax Tilt** para inclinação e glare nos cards de projetos e na foto da seção Sobre.
-- **Lucide React** e **React Icons** para ícones.
-- **CSS Modules** para estilos isolados por componente.
-- **Google Fonts** com Space Grotesk, Inter e JetBrains Mono.
+## Stack
 
-## 2. Estrutura de pastas
+| Área               | Tecnologias                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| Front-end          | React 19, JavaScript (JSX), CSS Modules, React Icons, react-parallax-tilt                     |
+| Animações          | CSS (keyframes) + `IntersectionObserver`; tsParticles no fundo do hero, carregado sob demanda |
+| Build              | Create React App (`react-scripts` 5)                                                          |
+| Testes e qualidade | Jest, Testing Library, ESLint (`eslint-config-react-app`), Prettier                           |
+| Deploy             | Vercel                                                                                        |
+
+## Arquitetura
+
+```mermaid
+flowchart LR
+    U["Navegador"] -->|HTTPS| V["Vercel CDN<br/>HTML, JS, CSS e imagens"]
+    V --> I["index.js"]
+    subgraph SPA["SPA React"]
+        I --> A["App<br/>providers e layout"]
+        A --> L["Navbar, Footer, StatusHUD"]
+        A --> H["pages/Home"]
+        H --> S["sections<br/>Hero, Tech, Projects, About, Contact"]
+        S --> UI["components/ui<br/>Button, Reveal, Icons"]
+        D["data/<br/>links, projects, skills, profile"] --> S
+        C["contexts/<br/>ActiveSectionContext"] --> L
+    end
+    S -.->|links externos| P["Deploys e repositórios<br/>dos projetos"]
+```
+
+Não há API: o conteúdo vive em arquivos de dados e a interface só lê esses dados. As camadas, de baixo para cima:
+
+- **`data/`**: todo o conteúdo do site (projetos, stack, perfil, links). Para adicionar um projeto, basta editar `projects.js`; a UI não precisa mudar.
+- **`pages/Home/sections/`**: cada seção da página lê os dados e monta a tela com os componentes.
+- **`components/`**: layout (`Navbar`, `Footer`, `StatusHUD`, `Cursor`) e, em `ui/`, peças genéricas sem regra de negócio (`Button`, `Reveal`, `Icons`).
+- **`contexts/` e `hooks/`**: estado compartilhado (seção ativa do menu) e hooks reutilizáveis (`useMediaQuery`).
 
 ```text
-portNovo/
-├── public/
-│   ├── index.html                 # HTML base, metadados e ponto de montagem
-│   └── gabriel.jpg                # Foto pública usada no Hero e em Sobre
-├── src/
-│   ├── App.js                     # Composição global da página
-│   ├── index.js                   # Entrada React 19 e StrictMode
-│   ├── assets/                    # Currículos em PDF importados pelo bundle
-│   ├── components/
-│   │   ├── Button/                # Botão/âncora com variantes e motion
-│   │   ├── Cursor/                # Cursor decorativo para mouse
-│   │   ├── Marquee/               # Faixa contínua animada em CSS
-│   │   ├── Navbar/                # Navegação desktop e menu mobile
-│   │   └── StatusHUD/             # Indicador de seção e uptime da sessão
-│   ├── data/
-│   │   ├── profile.js             # Perfil, contato, redes e links de navegação
-│   │   ├── projects.js            # Catálogo estático de projetos
-│   │   └── skills.js              # Skills por categoria e lista achatada
-│   ├── lib/
-│   │   ├── animations.js          # Variantes compartilhadas do Framer Motion
-│   │   ├── icons.jsx              # Mapeamento de nomes para componentes de ícone
-│   │   └── useActiveSection.js    # Hook baseado em IntersectionObserver
-│   ├── sections/
-│   │   ├── Hero/                  # Primeira dobra e apresentação
-│   │   ├── Tech/                  # Stack técnica e soft skills
-│   │   ├── Projects/              # Projetos selecionados
-│   │   ├── About/                 # Biografia e indicadores profissionais
-│   │   ├── Contact/               # E-mail e redes sociais
-│   │   └── Footer/                # Rodapé e stack do site
-│   └── styles/globals.css         # Reset, tokens, tipografia e regras globais
-├── package.json                   # Dependências e scripts
-└── README.md                     # Esta documentação
+src/
+├── App.jsx                 providers e layout
+├── index.js                entrada
+├── assets/projects/        screenshots dos projetos (WebP, 640 e 1200 px)
+├── components/
+│   ├── ui/                 Button, Reveal, Icons
+│   └── Navbar/ Footer/ StatusHUD/ Cursor/
+├── contexts/               ActiveSectionContext
+├── data/                   links, projects, skills, profile, navigation
+├── hooks/                  useMediaQuery
+├── pages/Home/             Home.jsx + sections/
+└── styles/                 globals.css (tokens e reset)
 ```
 
-## 3. Componentes e seções
+## Desafios técnicos
 
-### `App`
+### 1. Menu marcando a seção errada
 
-É o componente raiz e não recebe props. Renderiza `Cursor`, `Navbar`, as seis seções dentro de `main`, `Footer` e `StatusHUD`. A ordem do JSX define a ordem visual da SPA. Não há React Router: a navegação é feita por hash (`#home`, `#tech`, `#projects`, `#about`, `#contact`).
+- **Problema:** com a tela em "Projetos", o menu destacava "Stack". A versão anterior comparava `intersectionRatio`, que é a fração visível _de cada seção_. Assim, uma seção curta sempre "ganhava" de uma longa.
+- **Solução:** um único `IntersectionObserver` com `rootMargin: "-49% 0px -50% 0px"`, que reduz a área observada a uma faixa fina no centro da tela. A seção ativa é a que cruza essa faixa. O valor é distribuído por contexto (`ActiveSectionContext`) para o menu e o HUD.
+- **Por quê:** o resultado não depende da altura de cada seção. Um observer só, em vez de um por componente, e o provider evita re-renderizar a página inteira a cada troca. Testei rolando a página toda: o item certo ficou ativo em 41 de 41 posições.
 
-### `Hero`
+### 2. Links quebrados que ninguém percebia
 
-Não recebe props. Usa `profile`, `allSkills`, `Button` e `SkillIcon`.
+- **Problema:** os links do GitHub apontavam para um usuário errado e para repositórios que não existiam, e um botão apontava para `#`.
+- **Solução:** todos os links ficam em `src/data/links.js`, e as URLs do GitHub são montadas a partir de uma única constante (`GITHUB_USER`). O teste `links.test.js` falha se algum link ficar vazio, apontar para `#`, não usar HTTPS ou sair do usuário certo.
+- **Por quê:** o erro deixa de depender de alguém clicar em cada botão. Ele aparece no `npm test`.
 
-- **Estado:** `init` indica que o motor do tsParticles terminou de inicializar; `isMobile` reduz partículas e oculta o orbital em telas menores que 768 px.
-- **Referências e memoização:** `introRef` limita o contexto do GSAP; `orbStack`, criado com `useMemo`, calcula as posições circulares dos ícones.
-- **Lógica:** ao clicar em “Ver Projetos”, altera `window.location.hash` para `projects`. A foto vem de `profile.photo`. Cada skill recebe um ângulo e um raio para ser posicionada ao redor da imagem.
-- **Animações:** GSAP orquestra badge, título, descrição e ações em cascata. Framer Motion anima o frame da foto e a entrada/hover dos ícones. tsParticles adiciona partículas conectadas, interação de hover (`grab`) e clique (`push`).
-- **Design:** a foto fica em um frame recortado por `clipPath`, com halo radial e rede de ícones para comunicar visualmente a área de atuação. O orbital é removido no mobile para preservar espaço e legibilidade.
+### 3. Performance no celular: de 63 para 91 no Lighthouse
 
-### `Tech`
+- **Problema:** a nota de performance no mobile era 63. O Framer Motion e o GSAP ocupavam um terço do bundle só para fades na entrada. Ao trocá-los, apareceu um problema menos óbvio: o Lighthouse retornava `NO_LCP`, porque o Chrome ignora, no cálculo do LCP, elementos que começam com `opacity: 0`, e toda a primeira dobra começava assim.
+- **Solução:**
+  - as animações viraram CSS, disparadas por um componente `Reveal` com `IntersectionObserver`;
+  - a foto do hero, o maior elemento da dobra, anima só com escala, sem fade, e é pré-carregada no HTML;
+  - as imagens viraram WebP com `srcset` e `loading="lazy"`;
+  - as partículas só carregam em telas grandes.
+- **Por quê:** o bundle principal caiu de 195 KB para 86 KB (gzip), e a métrica de LCP voltou a refletir o que o usuário vê.
 
-Não recebe props. Consome `skillCategories`, `allSkills` e `softSkills` de `src/data/skills.js`.
+| Lighthouse (build de produção, medição local) | Performance | Acessibilidade | Boas práticas | SEO |
+| --------------------------------------------- | ----------- | -------------- | ------------- | --- |
+| Mobile                                        | 91          | 100            | 100           | 100 |
+| Desktop                                       | 99          | 100            | 100           | 100 |
 
-- Renderiza o marquee com todas as skills e três colunas categorizadas.
-- Usa `staggerContainer`, `fadeUp` e `viewportOnce` para revelar as colunas quando entram na viewport.
-- Cada item tem hover com pequena escala e deslocamento horizontal; soft skills usam hover vertical e mudança para a cor de destaque.
-- A lista `allSkills` é derivada com `flatMap`, evitando manter uma segunda fonte manual de dados para o Hero.
+## Como rodar localmente
 
-### `Projects` e `ProjectCard`
-
-`Projects` não recebe props. `ProjectCard` recebe a prop `project`, um objeto com `title`, `url`, `github`, `category` e `image`.
-
-- **Estado:** `isHovered` controla blur/opacidade da imagem, exibição do `iframe` e ocultação do overlay de informações.
-- **Lógica:** projetos com URL diferente de `#` exibem preview remoto durante hover. O botão “Acessar” abre a URL em nova aba; o botão com GitHub abre o repositório.
-- **Animações:** Framer Motion faz o stagger dos cards e os estados de entrada; `react-parallax-tilt` cria inclinação e glare cyan; o preview usa transição CSS.
-- **Performance:** imagens do projeto e `iframe` têm `loading="lazy"`. O `iframe` só é montado durante hover e apenas para projetos publicados.
-- **Decisão de dados:** `Calculadora Moderna` usa uma imagem remota comum em vez de uma string Base64 extensa embutida no código, reduzindo ruído e tamanho do módulo.
-
-### `About`
-
-Não recebe props. Usa `profile`, `socials` e um array local de `features`.
-
-- **Estado:** `repoCount` começa em zero e é preenchido pela API pública do GitHub. Se a requisição falhar, o componente usa `12` como fallback visual.
-- **Lógica:** encontra o social de GitHub pelo campo `icon`, apresenta currículo com `download` e compõe os blocos de habilidades, formação e experiência.
-- **Animações:** a foto usa `scaleIn`, o cartão de status faz fade/slide atrasado e o conteúdo textual usa `slideFromRight`. A foto também usa Tilt/glare.
-- **UX:** o texto enfatiza comunicação, resolução de problemas, foco em UX e busca por oportunidade Júnior/estágio; ações de currículo e GitHub ficam próximas da biografia.
-
-### `Contact`
-
-Não recebe props. Usa `profile`, `contact` e `socials`.
-
-- O e-mail é um link `mailto:`; cada rede abre em nova aba com `rel="noreferrer"`.
-- Exibe localização e disponibilidade com ícones e estado visual.
-- O conteúdo principal entra com `fadeUp`; o card de e-mail sobe levemente no hover.
-
-### `Navbar`
-
-Não recebe props. `isOpen` controla o menu mobile e `scrolled` aplica o estado visual da navegação após 24 px de rolagem.
-
-- Usa `useActiveSection` para destacar a âncora correspondente à seção visível.
-- `AnimatePresence` anima a entrada e saída do overlay mobile.
-- Bloqueia `document.body` enquanto o menu está aberto, fecha ao clicar em um link e aceita `Escape`.
-- O botão de menu alterna `Menu` e `X` com rotação e opacidade.
-
-### `Button`
-
-Props:
-
-| Prop | Tipo | Padrão | Uso |
-|---|---|---|---|
-| `children` | React node | obrigatório | Conteúdo do botão |
-| `variant` | `"primary" \| "outline"` | `"primary"` | Variante visual |
-| `className` | string | `""` | Classe adicional |
-| `href` | string opcional | ausente | Quando existe, renderiza link animado; sem ela, renderiza botão |
-| `...props` | atributos HTML | - | Encaminhados para o elemento final |
-
-Framer Motion aplica elevação no hover e redução de escala no clique. O componente centraliza o padrão visual, mas não impõe `type`, `aria-label` ou `rel`; esses atributos devem ser fornecidos pelo chamador quando necessários.
-
-### `Marquee`
-
-Props: `children` (React node), `speed` (número em segundos, padrão `32`) e `reverse` (booleano, padrão `false`). Duplica o conteúdo, marca o segundo grupo como `aria-hidden` e anima `translateX` em CSS puro. Isso evita trabalho JavaScript por frame. A classe de acessibilidade reduz o movimento ao desativar a animação quando `prefers-reduced-motion` está ativo.
-
-### `Cursor`
-
-Não recebe props. Usa `enabled` para decidir se deve renderizar e `isPointer` para ampliar/alterar o cursor sobre links, botões e elementos com `data-cursor-hover`. `useMotionValue` e `useSpring` suavizam a posição. O componente não aparece em ponteiros coarse/touch nem com movimento reduzido e é apenas decorativo.
-
-### `StatusHUD`
-
-Não recebe props. Reutiliza `useActiveSection` e mantém `uptime` com `setInterval` de um segundo. `formatUptime` transforma milissegundos em `MM:SS`. A entrada usa Framer Motion e o HUD exibe caminho da seção ativa, indicador e duração da sessão.
-
-### `useActiveSection` e animações compartilhadas
-
-`useActiveSection(sectionIds)` recebe uma lista de IDs, observa as seções existentes com `IntersectionObserver` e retorna a mais visível dentro da faixa central da viewport. `animations.js` concentra `fadeUp`, `fadeIn`, `scaleIn`, `slideFromLeft`, `slideFromRight`, `staggerContainer` e `viewportOnce`, mantendo duração, easing e margem de viewport consistentes.
-
-## 4. Estilos e design system
-
-Os estilos específicos ficam em arquivos `*.module.css`; `globals.css` contém reset, base e tokens.
-
-### Tokens principais
-
-| Grupo | Tokens |
-|---|---|
-| Fundo | `--bg: #0a0e14`, `--bg-elevated: #0d1218`, `--surface: #131a24` |
-| Bordas | `--border: #212a38`, `--border-strong: #2c3849` |
-| Texto | `--text: #e6ebf2`, `--text-muted: #8992a3`, `--text-faint: #4d5566` |
-| Acentos | `--accent: #5eead4` (cyan), `--signal: #fbbf24` (âmbar) |
-| Tipografia | `--font-display: Space Grotesk`, `--font-body: Inter`, `--font-mono: JetBrains Mono` |
-| Layout | `--container-w: 1180px`, `--nav-h: 84px` |
-| Raios | `--radius-sm: 8px`, `--radius-md: 14px`, `--radius-lg: 24px` |
-
-O fundo usa uma grade pontilhada radial sutil. Seções têm `z-index` próprio, espaçamento vertical de 140 px no desktop e 96 px no mobile. Botões primários usam preenchimento cyan e texto escuro; botões outline usam borda forte e assumem cyan no hover. Cards de projeto e foto empregam superfícies escuras, bordas discretas, glare e elevação moderada.
-
-## 5. Acessibilidade e performance
-
-### Implementado
-
-- Documento com `lang="pt-BR"`, viewport, descrição e `theme-color`.
-- Textos alternativos nas imagens da foto e dos projetos.
-- `aria-label` no botão de menu e nos links sociais do rodapé.
-- Segundo grupo do marquee marcado com `aria-hidden="true"` para não duplicar conteúdo assistivo.
-- Navegação por links e âncoras nativas, sem substituir o cursor real.
-- `prefers-reduced-motion` desativa/reduz animações globais, marquee e cursor.
-- Imagens de projetos e previews `iframe` usam carregamento lazy.
-- O hero mantém dimensões estáveis com `aspect-ratio` e a foto possui carregamento normal para priorizar a primeira dobra.
-- Partículas usam `loadSlim`, quantidade menor no mobile e `detectRetina`.
-- Limpeza de listeners, `IntersectionObserver`, intervalo e contexto GSAP nos desmontes.
-
-### Pontos a melhorar
-
-- O código ainda não define estilos explícitos de `:focus-visible`; deve-se adicionar foco visível para teclado.
-- O botão de menu informa apenas “Abrir menu” mesmo quando aberto; o rótulo poderia alternar para “Fechar menu” e expor `aria-expanded`.
-- `iframe` remoto e imagens externas dependem de terceiros e podem falhar ou impactar privacidade/performance.
-- O fallback fixo de repositórios pode ser substituído por estado de carregamento/erro mais transparente.
-- Não há suíte de testes implementada no estado atual do repositório.
-
-## 6. Como rodar o projeto
-
-Pré-requisitos: Node.js e npm instalados.
+**Pré-requisitos:** Node.js 18 ou superior (testado com o 24) e npm.
 
 ```bash
-# entrar na pasta do projeto
+git clone https://github.com/GabrielFagundes18/portNovo.git
 cd portNovo
-
-# instalar dependências
-npm install
-
-# iniciar o servidor de desenvolvimento
-npm start
+npm ci
+npm run dev        # http://localhost:3000
 ```
 
-O Create React App abrirá a aplicação em `http://localhost:3000` e recarregará a página após alterações.
+**Variáveis de ambiente:** nenhuma é obrigatória. Os padrões ficam em `.env.development` e `.env.production`. Para sobrescrever na sua máquina, copie `.env.example` para `.env.local`; cada variável está explicada no arquivo.
 
-Para gerar a versão de produção:
+| Comando                           | O que faz                                                                    |
+| --------------------------------- | ---------------------------------------------------------------------------- |
+| `npm run dev`                     | Servidor de desenvolvimento com recarga automática (`npm start` faz o mesmo) |
+| `npm run build`                   | Build de produção em `build/`                                                |
+| `npm test`                        | Roda os testes uma vez                                                       |
+| `npm run test:watch`              | Testes em modo interativo                                                    |
+| `npm run lint`                    | ESLint em `src/`, falha com qualquer warning                                 |
+| `npm run format` / `format:check` | Formata ou confere a formatação com Prettier                                 |
 
-```bash
-npm run build
-```
+**Deploy:** a Vercel faz o build a cada push na `main`. As meta tags de Open Graph precisam de URL absoluta. Por isso, `.env.production` usa `VERCEL_PROJECT_PRODUCTION_URL`, que a Vercel preenche com o domínio de produção.
 
-O resultado será criado em `build/`. Para executar o test runner do CRA:
+## Testes
 
 ```bash
 npm test
 ```
 
-Scripts disponíveis em `package.json`: `start`, `build`, `test` e `eject`. `eject` é uma operação irreversível e não é necessário para o fluxo normal.
+São 7 testes em 2 suítes:
 
-## 7. Próximos passos e pendências
+- **`src/data/links.test.js`:** nenhum link vazio ou `#`, links externos em HTTPS, todo link do GitHub no usuário certo, todo projeto com repositório e exatamente um projeto em destaque.
+- **`src/pages/Home/sections/Projects/ProjectCard.test.jsx`:** o card mostra "Ver projeto" e "Ver código" com as URLs certas, esconde "Ver projeto" quando não há deploy e abre links externos em nova aba com `rel="noopener noreferrer"`.
 
-### Para transformar o projeto em site de ONG
+O menu (seção ativa, teclado, menu mobile) e a responsividade foram verificados com um navegador headless durante o desenvolvimento, mas esses testes ainda não estão no repositório (veja os próximos passos).
 
-- Redefinir `profile` e metadados para a identidade da ONG.
-- Criar `PetSection` com catálogo de animais, dados de idade/porte/localização e estados de carregamento.
-- Implementar filtros por espécie, porte, idade e status de adoção.
-- Criar página ou rota de detalhes para “Ver todos os animais” e definir a estratégia de roteamento.
-- Criar `Donation` com chave PIX, botão de cópia, feedback acessível e QR Code PIX real.
-- Definir backend ou fonte de dados para pets, disponibilidade e contatos.
-- Substituir os projetos de portfólio e o texto profissional por histórias, campanhas e resultados da ONG.
+## Próximos passos
 
-### Melhorias gerais do portfólio
+- **Testes end-to-end com Playwright** para o menu (seção ativa, foco preso, `Esc`) e para a ausência de scroll horizontal de 360 a 1440 px, rodando no GitHub Actions junto com lint e testes.
+- **Migrar de Create React App para Vite**, já que o CRA não é mais mantido: build mais rápido e dependências atualizadas.
+- **Migrar para TypeScript**, começando pelos arquivos de `data/`, onde tipar a estrutura de um projeto evita card com campo faltando.
 
-- Adicionar foco visível, `aria-expanded` no menu e gerenciamento de foco no overlay.
-- Adicionar testes para navegação, menu mobile, fallback do GitHub e cards de projetos.
-- Considerar cache ou endpoint próprio para o contador de repositórios.
-- Hospedar imagens críticas localmente ou com estratégia de CDN e dimensões responsivas.
-- Adicionar Open Graph, favicon existente e metadados sociais completos.
-- Avaliar `loading="eager"`, `fetchpriority="high"` e dimensões explícitas para a foto principal caso os dados reais de performance indiquem necessidade.
+## Autor
 
-## Changelog técnico
+**Gabriel Fagundes**: desenvolvedor full stack, em busca de vaga Júnior ou de Estágio em Guarulhos/SP.
 
-### Hero
+- Portfólio: [URL_DO_DEPLOY](URL_DO_DEPLOY)
+- LinkedIn: [linkedin.com/in/gabrielfagundesdeoliveira](https://www.linkedin.com/in/gabrielfagundesdeoliveira/)
+- GitHub: [github.com/GabrielFagundes18](https://github.com/GabrielFagundes18)
+- E-mail: [gabrielfagundesvv@gmail.com](mailto:gabrielfagundesvv@gmail.com)
 
-- Criada entrada em cascata para badge, título, descrição e ações com GSAP.
-- Adicionada rede de partículas com tsParticles e redução de densidade no mobile.
-- Centralizada a fonte de skills em `data/skills.js` e gerado o orbital com `useMemo`.
-- Mantida foto local em frame recortado, com ícones orbitais apenas em telas maiores.
-
-### Tech Stack
-
-- Consolidada a lista de tecnologias em categorias e lista achatada reutilizável.
-- Adicionado marquee em CSS puro para reduzir custo de animação por frame.
-- Adicionadas entradas em stagger e interações de hover nos itens.
-
-### Projects
-
-- Criados cards com Tilt, glare, preview remoto em hover e ações persistentes.
-- Imagens dos projetos configuradas com `loading="lazy"`.
-- Removida a dependência de uma imagem Base64 extensa da calculadora, usando URL de imagem convencional.
-
-### Base e navegação
-
-- Criados tokens globais de cor, tipografia, espaçamento e raios.
-- Adicionado hook de seção ativa com `IntersectionObserver`.
-- Criado menu mobile com `AnimatePresence`, `Escape` e bloqueio de rolagem.
-- Adicionados cursor decorativo e HUD de status com suporte a movimento reduzido.
+Código sob licença [MIT](LICENSE). Foto, currículo e screenshots não estão incluídos na licença.
