@@ -13,7 +13,7 @@ const facts = [
     label: "Experiência anterior",
     value: "Balconista Júnior na Nakao, atendimento ao público (2022–2025)",
   },
-  { label: "Inglês", value: "Em estudo contínuo" },
+  { label: "Inglês", value: "Básico, com leitura de documentação técnica" },
   {
     label: "Busco",
     value: `Vaga ${profile.availability} em ${profile.location} — ${profile.workModes}`,
