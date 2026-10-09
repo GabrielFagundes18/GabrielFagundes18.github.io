@@ -13,8 +13,8 @@ export function Projects() {
         Projetos selecionados<span className={styles.dotPunct}>.</span>
       </h2>
       <p className={styles.lead}>
-        Do mais completo ao mais simples. Cada card mostra o problema, a stack usada e um
-        desafio técnico que eu resolvi.
+        Do mais completo ao mais simples. Cada card mostra o problema, a stack usada e um desafio
+        técnico que eu resolvi.
       </p>
 
       {featured && (

@@ -18,7 +18,12 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={combinedClassName} {...(external ? externalLinkProps : {})} {...props}>
+      <a
+        href={href}
+        className={combinedClassName}
+        {...(external ? externalLinkProps : {})}
+        {...props}
+      >
         {content}
       </a>
     );

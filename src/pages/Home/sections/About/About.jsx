@@ -5,8 +5,14 @@ import { profile } from "../../../../data/profile";
 import { Reveal } from "../../../../components/ui/Reveal/Reveal";
 
 const facts = [
-  { label: "Formação", value: "Análise e Desenvolvimento de Sistemas — Universidade Cruzeiro do Sul, 3º semestre" },
-  { label: "Experiência anterior", value: "Balconista Júnior na Nakao, atendimento ao público (2022–2025)" },
+  {
+    label: "Formação",
+    value: "Análise e Desenvolvimento de Sistemas — Universidade Cruzeiro do Sul, 3º semestre",
+  },
+  {
+    label: "Experiência anterior",
+    value: "Balconista Júnior na Nakao, atendimento ao público (2022–2025)",
+  },
   { label: "Inglês", value: "Em estudo contínuo" },
   {
     label: "Busco",
@@ -74,16 +80,17 @@ export function About() {
           <div className={styles.bio}>
             <p>
               Passei três anos no balcão da Nakao atendendo o público, muitas vezes em horário de
-              pico. Foi lá que aprendi a <strong>entender o que a pessoa precisa antes de
-              responder</strong>, a explicar sem jargão e a <strong>resolver o problema sem
-              travar a fila</strong> — e é isso que levo hoje para o desenvolvimento.
+              pico. Foi lá que aprendi a{" "}
+              <strong>entender o que a pessoa precisa antes de responder</strong>, a explicar sem
+              jargão e a <strong>resolver o problema sem travar a fila</strong> — e é isso que levo
+              hoje para o desenvolvimento.
             </p>
             <p>
               Curso Análise e Desenvolvimento de Sistemas e construo sistemas completos com React,
               TypeScript, Node.js e PostgreSQL. O olhar de atendimento aparece nos detalhes: no
-              Ninja Burger, o campo de troco só aparece quando o cliente escolhe pagar em
-              dinheiro, e o painel <strong>destaca pedidos parados há mais de 15 minutos</strong>{" "}
-              para a equipe agir antes de o cliente ficar insatisfeito.
+              Ninja Burger, o campo de troco só aparece quando o cliente escolhe pagar em dinheiro,
+              e o painel <strong>destaca pedidos parados há mais de 15 minutos</strong> para a
+              equipe agir antes de o cliente ficar insatisfeito.
             </p>
           </div>
 

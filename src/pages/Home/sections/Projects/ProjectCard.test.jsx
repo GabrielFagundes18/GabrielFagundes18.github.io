@@ -8,15 +8,24 @@ const withoutDeploy = projects.find((project) => !project.links.deploy);
 test("mostra os botões de projeto e de código quando há deploy", () => {
   render(<ProjectCard project={withDeploy} />);
 
-  expect(screen.getByRole("link", { name: /^ver projeto/i })).toHaveAttribute("href", withDeploy.links.deploy);
-  expect(screen.getByRole("link", { name: /^ver código/i })).toHaveAttribute("href", withDeploy.links.repo);
+  expect(screen.getByRole("link", { name: /^ver projeto/i })).toHaveAttribute(
+    "href",
+    withDeploy.links.deploy
+  );
+  expect(screen.getByRole("link", { name: /^ver código/i })).toHaveAttribute(
+    "href",
+    withDeploy.links.repo
+  );
 });
 
 test("esconde 'Ver projeto' quando o projeto não tem deploy", () => {
   render(<ProjectCard project={withoutDeploy} />);
 
   expect(screen.queryByRole("link", { name: /^ver projeto/i })).not.toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /^ver código/i })).toHaveAttribute("href", withoutDeploy.links.repo);
+  expect(screen.getByRole("link", { name: /^ver código/i })).toHaveAttribute(
+    "href",
+    withoutDeploy.links.repo
+  );
 });
 
 test("links externos abrem em nova aba com rel seguro", () => {

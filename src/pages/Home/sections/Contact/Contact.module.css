@@ -43,7 +43,10 @@
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
-  transition: border-color 0.25s ease, background 0.25s ease, translate 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    translate 0.25s ease;
 }
 
 .mainCard:hover {
@@ -114,7 +117,10 @@
   align-items: center;
   gap: 14px;
   color: var(--text-muted);
-  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .socialText {

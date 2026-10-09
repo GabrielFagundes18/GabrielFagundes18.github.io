@@ -31,8 +31,7 @@ export function Cursor() {
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${current.x}px, ${current.y}px, 0)`;
       }
-      const settled =
-        Math.abs(target.x - current.x) < 0.1 && Math.abs(target.y - current.y) < 0.1;
+      const settled = Math.abs(target.x - current.x) < 0.1 && Math.abs(target.y - current.y) < 0.1;
       frame = settled ? null : requestAnimationFrame(tick);
     };
 

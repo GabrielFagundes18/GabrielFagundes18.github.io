@@ -40,8 +40,7 @@ export function ActiveSectionProvider({ ids, children }) {
         });
 
         const candidates = [...intersecting];
-        const current =
-          candidates.find(containsViewportCenter) ?? candidates[0];
+        const current = candidates.find(containsViewportCenter) ?? candidates[0];
         if (current) setActiveId(current.id);
       },
       { rootMargin: CENTER_BAND, threshold: 0 }
@@ -63,11 +62,7 @@ export function ActiveSectionProvider({ ids, children }) {
     };
   }, [idsKey]);
 
-  return (
-    <ActiveSectionContext.Provider value={activeId}>
-      {children}
-    </ActiveSectionContext.Provider>
-  );
+  return <ActiveSectionContext.Provider value={activeId}>{children}</ActiveSectionContext.Provider>;
 }
 
 export function useActiveSection() {

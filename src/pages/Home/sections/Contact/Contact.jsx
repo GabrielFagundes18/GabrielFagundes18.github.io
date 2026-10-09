@@ -18,9 +18,8 @@ export function Contact() {
             Vamos conversar<span>.</span>
           </h2>
           <p className={styles.description}>
-            Estou em busca de uma vaga <strong>{profile.availability}</strong> em{" "}
-            {profile.location} — {profile.workModes}. O jeito mais rápido de falar
-            comigo é por e-mail.
+            Estou em busca de uma vaga <strong>{profile.availability}</strong> em {profile.location}{" "}
+            — {profile.workModes}. O jeito mais rápido de falar comigo é por e-mail.
           </p>
         </Reveal>
 

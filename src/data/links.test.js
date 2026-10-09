@@ -27,7 +27,10 @@ test("todo link do GitHub aponta para o usuário certo", () => {
 
   expect(githubUrls.length).toBeGreaterThan(0);
   githubUrls.forEach((url) => {
-    expect(url === `https://github.com/${GITHUB_USER}` || url.startsWith(`https://github.com/${GITHUB_USER}/`)).toBe(true);
+    expect(
+      url === `https://github.com/${GITHUB_USER}` ||
+        url.startsWith(`https://github.com/${GITHUB_USER}/`)
+    ).toBe(true);
   });
 });
 

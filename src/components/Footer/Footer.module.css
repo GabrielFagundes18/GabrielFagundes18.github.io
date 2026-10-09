@@ -21,7 +21,10 @@
   border-radius: 50%;
   color: var(--text-muted);
   font-size: 1.4rem;
-  transition: color 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    filter 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;

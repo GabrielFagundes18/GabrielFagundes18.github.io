@@ -30,7 +30,9 @@ export function ProjectCard({ project, featured = false, delay = 0 }) {
           <img
             src={image.src}
             srcSet={image.srcSet}
-            sizes={featured ? "(min-width: 1024px) 640px, 100vw" : "(min-width: 861px) 560px, 100vw"}
+            sizes={
+              featured ? "(min-width: 1024px) 640px, 100vw" : "(min-width: 861px) 560px, 100vw"
+            }
             width="1200"
             height="750"
             alt={image.alt}
@@ -63,11 +65,7 @@ export function ProjectCard({ project, featured = false, delay = 0 }) {
 
         <div className={styles.actions}>
           {links.deploy && (
-            <Button
-              href={links.deploy}
-              external
-              aria-label={`Ver projeto ${title} ${NEW_TAB}`}
-            >
+            <Button href={links.deploy} external aria-label={`Ver projeto ${title} ${NEW_TAB}`}>
               Ver projeto <FiArrowUpRight aria-hidden="true" />
             </Button>
           )}

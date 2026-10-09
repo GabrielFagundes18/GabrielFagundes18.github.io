@@ -25,8 +25,8 @@ export function Footer() {
 
       <div className={styles.copyright}>
         <p className={styles.copyrightText}>
-          © {currentYear} — <span className={styles.terminalPrompt}>$</span>{" "}
-          construído por <span className={styles.name}>{profile.name}</span>
+          © {currentYear} — <span className={styles.terminalPrompt}>$</span> construído por{" "}
+          <span className={styles.name}>{profile.name}</span>
           <span className={styles.cursor} aria-hidden="true">
             _
           </span>
