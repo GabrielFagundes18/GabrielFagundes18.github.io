@@ -31,7 +31,7 @@ export function Footer() {
             _
           </span>
         </p>
-        <p className={styles.stack}>React 19 · CSS Modules · Vercel</p>
+        <p className={styles.stack}>React 19 · CSS Modules · GitHub Pages</p>
       </div>
     </footer>
   );
