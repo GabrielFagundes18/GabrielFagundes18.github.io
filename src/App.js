@@ -9,7 +9,7 @@ import { Tech } from "./sections/Tech/Tech";
 import { Projects } from "./sections/Projects/Projects";
 import { About } from "./sections/About/About";
 import { Contact } from "./sections/Contact/Contact";
-import { Footer } from "./sections/Footer/Footer";
+import { Footer } from "./components/Footer/Footer";
 
 import { ActiveSectionProvider } from "./contexts/ActiveSectionContext";
 import { sectionIds } from "./data/navigation";
