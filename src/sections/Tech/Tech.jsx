@@ -1,69 +1,45 @@
-import { motion } from "framer-motion";
-import { skillCategories, softSkills, allSkills } from "../../data/skills";
+import { skillGroups } from "../../data/skills";
 import { SkillIcon } from "../../lib/icons";
-import { Marquee } from "../../components/Marquee/Marquee";
-import { fadeUp, staggerContainer, viewportOnce } from "../../lib/animations";
+import { Reveal } from "../../components/Reveal/Reveal";
 import styles from "./Tech.module.css";
 
 export function Tech() {
   return (
-    <section id="tech" className={`section ${styles.techSection}`}>
+    <section id="tech" className="section" aria-labelledby="tech-title">
       <span className="eyebrow">~/tech-stack</span>
-      <h2 className={styles.title}>Tecnologias & Skills</h2>
+      <h2 id="tech-title" className={styles.title}>
+        Stack<span className={styles.dot}>.</span>
+      </h2>
+      <p className={styles.lead}>
+        Separei o que eu uso de verdade no dia a dia do que ainda estou aprofundando.
+      </p>
 
-      <div className={styles.marqueeWrap}>
-        <Marquee speed={38}>
-          {allSkills.map((tech) => (
-            <div key={tech.name} className={styles.marqueeItem}>
-              <span style={{ color: tech.color }}>
-                <SkillIcon name={tech.icon} />
-              </span>
-              {tech.name}
-            </div>
-          ))}
-        </Marquee>
-      </div>
-
-      <motion.div
-        className={styles.mainGrid}
-        variants={staggerContainer(0.12)}
-        initial="hidden"
-        whileInView="show"
-        viewport={viewportOnce}
-      >
-        {skillCategories.map((category) => (
-          <motion.div key={category.title} className={styles.column} variants={fadeUp}>
-            <h3 className={styles.columnTitle}>
-              <span className={styles.hash}>#</span> {category.title}
-            </h3>
-
-            <div className={styles.list}>
-              {category.skills.map((tech) => (
-                <motion.div
-                  key={tech.name}
-                  className={styles.listItem}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                >
-                  <div className={styles.iconBox} style={{ color: tech.color }}>
-                    <SkillIcon name={tech.icon} />
-                  </div>
-                  <span className={styles.techName}>{tech.name}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      <div className={styles.softSkillsRow}>
-        {softSkills.map((skill) => (
-          <motion.span
-            key={skill}
-            className={styles.minimalBadge}
-            whileHover={{ y: -5, color: "var(--accent)" }}
+      <div className={styles.groups}>
+        {skillGroups.map((group, index) => (
+          <Reveal
+            key={group.title}
+            delay={index * 0.12}
+            className={`${styles.group} ${group.primary ? styles.primary : ""}`}
           >
-            {skill}
-          </motion.span>
+            <h3 className={styles.groupTitle}>
+              <span className={styles.hash} aria-hidden="true">
+                #
+              </span>{" "}
+              {group.title}
+            </h3>
+            <p className={styles.groupNote}>{group.note}</p>
+
+            <ul className={styles.list}>
+              {group.skills.map((skill) => (
+                <li key={skill.name} className={styles.item}>
+                  <span className={styles.icon} style={{ color: skill.color }}>
+                    <SkillIcon name={skill.icon} />
+                  </span>
+                  {skill.name}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         ))}
       </div>
     </section>

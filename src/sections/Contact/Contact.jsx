@@ -1,72 +1,80 @@
-import { motion } from "framer-motion";
-import { FiMail, FiMapPin, FiSend } from "react-icons/fi";
+import { FiDownload, FiMail, FiMapPin, FiSend } from "react-icons/fi";
 import styles from "./Contact.module.css";
-import { profile, contact, socials } from "../../data/profile";
+import { Button } from "../../components/Button/Button";
+import { Reveal } from "../../components/Reveal/Reveal";
+import { profile, socials } from "../../data/profile";
+import { links } from "../../data/links";
 import { SocialIcon } from "../../lib/icons";
-import { fadeUp, viewportOnce } from "../../lib/animations";
+
+const [emailUser, emailDomain] = profile.email.split("@");
 
 export function Contact() {
   return (
-    <section id="contact" className={`section ${styles.container}`}>
+    <section id="contact" className={`section ${styles.container}`} aria-labelledby="contact-title">
       <div className={styles.wrapper}>
-        <motion.div
-          className={styles.content}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-        >
+        <Reveal className={styles.content}>
           <span className="eyebrow">~/contact</span>
-          <h2 className={styles.title}>
-            Iniciar novo projeto<span>.</span>
+          <h2 id="contact-title" className={styles.title}>
+            Vamos conversar<span>.</span>
           </h2>
           <p className={styles.description}>
-            Atualmente disponível para oportunidades como <strong>{profile.availability}</strong>.
-            Se você busca alguém resiliente e focado em soluções Full Stack, vamos conversar.
+            Estou em busca de uma vaga <strong>{profile.availability}</strong> em{" "}
+            {profile.location} — {profile.workModes}. O jeito mais rápido de falar
+            comigo é por e-mail.
           </p>
-        </motion.div>
+        </Reveal>
 
         <div className={styles.grid}>
-          <motion.a
-            href={`mailto:${contact.email}`}
-            className={`${styles.card} ${styles.mainCard}`}
-            whileHover={{ y: -5 }}
-          >
-            <div className={styles.iconBox}>
+          <a href={links.email} className={`${styles.card} ${styles.mainCard}`}>
+            <span className={styles.iconBox} aria-hidden="true">
               <FiMail size={24} />
-            </div>
-            <div className={styles.cardInfo}>
-              <span>E-mail</span>
-              <strong>{contact.email}</strong>
-            </div>
-            <FiSend size={20} className={styles.arrowIcon} />
-          </motion.a>
+            </span>
+            <span className={styles.cardInfo}>
+              <span className={styles.cardLabel}>Enviar e-mail</span>
+              <strong>
+                {emailUser}
+                <wbr />@{emailDomain}
+              </strong>
+            </span>
+            <FiSend size={20} className={styles.arrowIcon} aria-hidden="true" />
+          </a>
 
-          <div className={styles.socialGroup}>
+          <ul className={styles.socialGroup}>
             {socials.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialCard}
-              >
-                <SocialIcon name={social.icon} size={20} />
-                <span>{social.name}</span>
-              </a>
+              <li key={social.name}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialCard}
+                >
+                  <SocialIcon name={social.icon} size={22} />
+                  <span className={styles.socialText}>
+                    <span className={styles.socialName}>{social.name}</span>
+                    <span className={styles.socialHandle}>{social.handle}</span>
+                  </span>
+                  <span className="sr-only"> (abre em nova aba)</span>
+                </a>
+              </li>
             ))}
+          </ul>
+
+          <div className={styles.resume}>
+            <Button href={links.resume} download variant="outline">
+              <FiDownload aria-hidden="true" /> Baixar currículo (PDF)
+            </Button>
           </div>
         </div>
 
         <div className={styles.footerInfo}>
-          <div className={styles.location}>
-            <FiMapPin size={16} className={styles.pin} />
-            <p>{profile.location}</p>
-          </div>
-          <div className={styles.status}>
-            <span className={styles.pulse} />
-            <p>Disponível para propostas</p>
-          </div>
+          <p className={styles.location}>
+            <FiMapPin size={16} className={styles.pin} aria-hidden="true" />
+            {profile.location} — Brasil
+          </p>
+          <p className={styles.status}>
+            <span className={styles.statusDot} aria-hidden="true" />
+            Disponível para vagas {profile.availability}
+          </p>
         </div>
       </div>
     </section>

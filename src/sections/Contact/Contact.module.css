@@ -43,12 +43,13 @@
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
-  transition: border-color 0.25s ease, background 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, translate 0.25s ease;
 }
 
 .mainCard:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
+  translate: 0 -5px;
 }
 
 .iconBox {
@@ -64,8 +65,13 @@
   flex-shrink: 0;
 }
 
-.cardInfo span {
-  display: block;
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cardLabel {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-faint);
@@ -75,9 +81,9 @@
 }
 
 .cardInfo strong {
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(0.95rem, 2vw, 1.3rem);
   color: var(--text);
-  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .arrowIcon {
@@ -94,26 +100,50 @@
 
 .socialGroup {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+  list-style: none;
 }
 
 .socialCard {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 18px;
+  padding: 18px 22px;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 14px;
   color: var(--text-muted);
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.socialText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.socialName {
   font-weight: 600;
-  transition: 0.25s;
+  color: var(--text);
+}
+
+.socialHandle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resume {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .socialCard:hover {
-  color: var(--text);
+  color: var(--accent);
   border-color: var(--accent);
   background: var(--surface-hover);
 }
@@ -140,37 +170,29 @@
   color: var(--accent);
 }
 
-.pulse {
+.statusDot {
   width: 8px;
   height: 8px;
-  background: var(--signal);
   border-radius: 50%;
-  position: relative;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  flex-shrink: 0;
 }
 
-.pulse::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: var(--signal);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
+@media (max-width: 560px) {
+  .card {
+    padding: 20px 18px;
   }
-  100% {
-    transform: scale(3);
-    opacity: 0;
+  .iconBox {
+    width: 44px;
+    height: 44px;
+    margin-right: 14px;
   }
 }
 
 @media (max-width: 768px) {
   .socialGroup {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .footerInfo {
     flex-direction: column;

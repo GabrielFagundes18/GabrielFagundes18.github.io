@@ -1,42 +1,32 @@
+import { GITHUB_USER, links } from "./links";
+
 export const profile = {
-  name: "Gabriel Fagundes Oliveira",
+  name: "Gabriel Fagundes de Oliveira",
   shortName: "Gabriel Fagundes",
   role: "Desenvolvedor Full Stack",
-  githubUser: "GabrielFagundes18",
-  tagline: "Transformando código em soluções reais com as melhores tecnologias do mercado.",
-  bio:
-    "Desenvolvedor full stack focado em construir produtos web rápidos, acessíveis e bem estruturados — do banco de dados à interface. Gosto de resolver problemas reais, aprender rápido e escrever código que o próximo dev (ou eu mesmo, 6 meses depois) consiga entender sem sofrer.",
-  availability: "Desenvolvedor Júnior ou Estagiário",
-  location: "Guarulhos, SP — Brasil",
-  photo: "/gabriel.jpg",
-  resumeUrl: require("../assets/Gabriel_Fagundes_de_Oliveira_Curriculo.pdf"),
-};
-
-export const contact = {
-  email: "gabrielfagundesvv@gmail.com",
+  tagline:
+    "Construo aplicações web completas com React, TypeScript, Node.js e PostgreSQL — do banco de dados à interface. Estou em busca da minha primeira vaga Júnior ou de Estágio.",
+  availability: "Júnior ou Estágio",
+  location: "Guarulhos, SP",
+  workModes: "presencial, híbrida ou remota",
+  email: links.email.replace("mailto:", ""),
+  photo: {
+    src: "/gabriel-800.webp",
+    srcSet: "/gabriel-400.webp 400w, /gabriel-800.webp 800w",
+  },
 };
 
 export const socials = [
   {
     name: "GitHub",
-    href: `https://github.com/${profile.githubUser}`,
+    handle: GITHUB_USER,
+    href: links.github,
     icon: "github",
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/gabrielfagundesdeoliveira/",
+    handle: "gabrielfagundesdeoliveira",
+    href: links.linkedin,
     icon: "linkedin",
   },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/gabrielfagundes___/",
-    icon: "instagram",
-  },
-];
-
-export const navLinks = [
-  { label: "Home", href: "#home", path: "~/home", icon: "home" },
-  { label: "Stack", href: "#tech", path: "~/tech-stack", icon: "code" },
-  { label: "Projetos", href: "#projects", path: "~/projects", icon: "layers" },
-  { label: "Sobre", href: "#about", path: "~/about", icon: "user" },
 ];

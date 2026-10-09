@@ -1,139 +1,101 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
-import { FaGithub, FaDownload } from "react-icons/fa";
 import { HiOutlineChip } from "react-icons/hi";
-import {
-  MdOutlineCode,
-  MdTranslate,
-  MdOutlineRocketLaunch,
-} from "react-icons/md";
 import styles from "./About.module.css";
-import { Button } from "../../components/Button/Button";
-import { profile, socials } from "../../data/profile";
-import { slideFromRight, scaleIn, viewportOnce } from "../../lib/animations";
+import { profile } from "../../data/profile";
+import { Reveal } from "../../components/Reveal/Reveal";
 
-const features = [
-  { icon: MdOutlineCode, title: "Stack Prática", text: "React 19, TypeScript & Node" },
+const facts = [
+  { label: "Formação", value: "Análise e Desenvolvimento de Sistemas — Universidade Cruzeiro do Sul, 3º semestre" },
+  { label: "Experiência anterior", value: "Balconista Júnior na Nakao, atendimento ao público (2022–2025)" },
+  { label: "Inglês", value: "Em estudo contínuo" },
   {
-    icon: MdOutlineRocketLaunch,
-    title: "Foco em Entrega",
-    text: "Sistemas Full-stack & Dashboards",
+    label: "Busco",
+    value: `Vaga ${profile.availability} em ${profile.location} — ${profile.workModes}`,
   },
-  { icon: MdTranslate, title: "Idiomas", text: "Inglês (Estudo constante)" },
 ];
 
 export function About() {
-  const [repoCount, setRepoCount] = useState(0);
-  const githubSocial = socials.find((s) => s.icon === "github");
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${profile.githubUser}`)
-      .then((res) => res.json())
-      .then((data) => setRepoCount(data.public_repos || 0))
-      .catch(() => setRepoCount(12));
-  }, []);
-
   return (
-    <section id="about" className={`section ${styles.about}`}>
+    <section id="about" className={`section ${styles.about}`} aria-labelledby="about-title">
       <div className={styles.blurTop} />
 
       <div className={styles.container}>
         <div className={styles.visualSide}>
-          <motion.div variants={scaleIn} initial="hidden" whileInView="show" viewport={viewportOnce}>
+          <Reveal variant="scaleIn">
             <Tilt
               perspective={1500}
               glareEnable
               glareMaxOpacity={0.15}
               glareColor="#5eead4"
               glarePosition="all"
-              glareBorderRadius="32px"
+              glareBorderRadius="24px"
               className={styles.tiltCard}
             >
               <div className={styles.photoWrapper}>
                 <div className={styles.imageOverlay} />
-                <img src={profile.photo} alt={profile.shortName} className={styles.profileImg} />
+                <img
+                  src={profile.photo.src}
+                  srcSet={profile.photo.srcSet}
+                  sizes="(max-width: 1024px) 420px, 440px"
+                  width="800"
+                  height="800"
+                  alt={`Foto de ${profile.shortName}`}
+                  className={styles.profileImg}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className={styles.experienceBadge}>
-                  <HiOutlineChip size={20} className={styles.spinningIcon} />
-                  <span>Full Stack Developer</span>
+                  <HiOutlineChip size={20} className={styles.spinningIcon} aria-hidden="true" />
+                  <span>{profile.role}</span>
                 </div>
               </div>
             </Tilt>
-          </motion.div>
+          </Reveal>
 
-          <motion.div
-            className={styles.statusCard}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-            viewport={viewportOnce}
-          >
+          <Reveal as="dl" delay={0.35} className={styles.statusCard}>
             <div className={styles.statusItem}>
-              <span className={styles.statusNumber}>{repoCount}</span>
-              <span className={styles.statusLabel}>Repositórios</span>
+              <dt className={styles.statusLabel}>Atendimento ao público</dt>
+              <dd className={styles.statusNumber}>3 anos</dd>
             </div>
             <div className={styles.divider} />
             <div className={styles.statusItem}>
-              <span className={styles.statusNumber}>ADS</span>
-              <span className={styles.statusLabel}>3º Semestre</span>
+              <dt className={styles.statusLabel}>3º semestre</dt>
+              <dd className={styles.statusNumber}>ADS</dd>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
 
-        <motion.div
-          className={styles.contentSide}
-          variants={slideFromRight}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-        >
+        <Reveal variant="slideFromRight" className={styles.contentSide}>
           <span className="eyebrow">~/about</span>
-          <h2 className={styles.heading}>
-            {profile.shortName}
-            <span className={styles.dot}>.</span>
+          <h2 id="about-title" className={styles.heading}>
+            Do balcão ao código<span className={styles.dot}>.</span>
           </h2>
 
           <div className={styles.bio}>
             <p>
-              Minha trajetória começou no atendimento ao público, onde desenvolvi forte
-              capacidade de <strong>comunicação, resolução de problemas e atuação sob
-              pressão</strong> — habilidades que hoje aplico diretamente no desenvolvimento de
-              software, com foco na experiência do usuário.
+              Passei três anos no balcão da Nakao atendendo o público, muitas vezes em horário de
+              pico. Foi lá que aprendi a <strong>entender o que a pessoa precisa antes de
+              responder</strong>, a explicar sem jargão e a <strong>resolver o problema sem
+              travar a fila</strong> — e é isso que levo hoje para o desenvolvimento.
             </p>
             <p>
-              Atualmente curso <strong>Análise e Desenvolvimento de Sistemas</strong> e atuo no
-              desenvolvimento de aplicações web modernas, performáticas e integradas a APIs,
-              utilizando o ecossistema <strong>React, TypeScript e Node.js</strong>.
-            </p>
-            <p>
-              Meu foco vai além de escrever código: busco construir soluções que sejam úteis,
-              escaláveis e alinhadas ao problema real. Estou em busca da minha primeira
-              oportunidade como <strong>Júnior</strong> para gerar impacto real e evoluir
-              tecnicamente.
+              Curso Análise e Desenvolvimento de Sistemas e construo sistemas completos com React,
+              TypeScript, Node.js e PostgreSQL. O olhar de atendimento aparece nos detalhes: no
+              Ninja Burger, o campo de troco só aparece quando o cliente escolhe pagar em
+              dinheiro, e o painel <strong>destaca pedidos parados há mais de 15 minutos</strong>{" "}
+              para a equipe agir antes de o cliente ficar insatisfeito.
             </p>
           </div>
 
-          <div className={styles.featuresGrid}>
-            {features.map(({ icon: Icon, title, text }) => (
-              <div className={styles.feature} key={title}>
-                <Icon className={styles.featureIcon} />
-                <div>
-                  <h4>{title}</h4>
-                  <p>{text}</p>
-                </div>
+          <dl className={styles.facts}>
+            {facts.map((fact) => (
+              <div className={styles.fact} key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
               </div>
             ))}
-          </div>
-
-          <div className={styles.actions}>
-            <Button href={profile.resumeUrl} download="CV_Gabriel_Fagundes.pdf" variant="primary">
-              <FaDownload /> Download CV
-            </Button>
-            <Button href={githubSocial.href} target="_blank" rel="noopener noreferrer" variant="outline">
-              <FaGithub /> GitHub
-            </Button>
-          </div>
-        </motion.div>
+          </dl>
+        </Reveal>
       </div>
     </section>
   );

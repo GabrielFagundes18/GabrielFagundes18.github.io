@@ -19,7 +19,7 @@
   max-width: var(--container-w);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: 72px;
   align-items: center;
   position: relative;
@@ -45,6 +45,7 @@
 
 .profileImg {
   width: 100%;
+  height: auto;
   display: block;
   filter: grayscale(15%) contrast(1.08);
 }
@@ -71,6 +72,13 @@
   border: 1px solid var(--accent);
   font-size: 0.85rem;
   color: var(--text);
+}
+
+.statusItem {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
 }
 
 .statusCard {
@@ -118,7 +126,7 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .bio p {
@@ -132,40 +140,32 @@
   font-weight: 600;
 }
 
-.featuresGrid {
+.facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 24px;
-  margin-bottom: 44px;
-}
-
-.feature {
-  display: flex;
-  align-items: flex-start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
-.featureIcon {
-  font-size: 1.7rem;
+.fact {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.fact dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--accent);
-  flex-shrink: 0;
+  margin-bottom: 6px;
 }
 
-.feature h4 {
-  font-size: 0.92rem;
-  margin-bottom: 4px;
+.fact dd {
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: var(--text);
-}
-
-.feature p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-.actions {
-  display: flex;
-  gap: 16px;
 }
 
 @keyframes spin {
@@ -179,22 +179,27 @@
 
 .spinningIcon {
   animation: spin 10s linear infinite;
+  flex-shrink: 0;
 }
 
 @media (max-width: 1024px) {
   .container {
-    grid-template-columns: 1fr;
-    text-align: center;
+    grid-template-columns: minmax(0, 1fr);
     gap: 48px;
   }
   .visualSide {
     align-items: center;
   }
-  .feature {
-    flex-direction: column;
-    align-items: center;
+  .visualSide > * {
+    width: min(420px, 100%);
   }
-  .actions {
-    justify-content: center;
+}
+
+@media (max-width: 560px) {
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .statusCard {
+    padding: 18px 16px;
   }
 }
