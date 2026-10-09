@@ -13,10 +13,11 @@
 
 # misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+
+# variáveis de ambiente locais (podem conter valores reais)
+# .env.development e .env.production ficam versionados: só têm valores públicos
+.env
+.env*.local
 
 npm-debug.log*
 yarn-debug.log*
