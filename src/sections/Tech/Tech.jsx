@@ -1,5 +1,5 @@
 import { skillGroups } from "../../data/skills";
-import { SkillIcon } from "../../lib/icons";
+import { SkillIcon } from "../../components/ui/Icons/Icons";
 import { Reveal } from "../../components/ui/Reveal/Reveal";
 import styles from "./Tech.module.css";
 

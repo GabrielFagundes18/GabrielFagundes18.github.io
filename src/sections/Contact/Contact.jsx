@@ -4,7 +4,7 @@ import { Button } from "../../components/ui/Button/Button";
 import { Reveal } from "../../components/ui/Reveal/Reveal";
 import { profile, socials } from "../../data/profile";
 import { links } from "../../data/links";
-import { SocialIcon } from "../../lib/icons";
+import { SocialIcon } from "../../components/ui/Icons/Icons";
 
 const [emailUser, emailDomain] = profile.email.split("@");
 

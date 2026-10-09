@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import { profile, socials } from "../../data/profile";
-import { SocialIcon } from "../../lib/icons";
+import { SocialIcon } from "../../components/ui/Icons/Icons";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
